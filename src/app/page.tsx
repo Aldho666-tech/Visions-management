@@ -33,11 +33,11 @@ export default function Home() {
     }
   };
 
-  // Complete Luxury Homepage Section Sequence (Including 7-Step Process Roadmap)
+  // Complete Luxury Homepage Section Sequence (Black, Grey, White, and Gold Palette)
   const sections = [
     { id: "vision", bgClassName: "bg-[#171717]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} />, noPadding: true },
     { id: "about", bgClassName: "bg-[#F8F7F4]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
-    { id: "services", bgClassName: "bg-[#1D2622]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
+    { id: "services", bgClassName: "bg-[#262626]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
     { id: "partners", bgClassName: "bg-[#DFE7EC]", component: <PartnersSection />, noPadding: true },
     { id: "process", bgClassName: "bg-[#171717]", component: <ProcessSection /> },
     { id: "why-us", bgClassName: "bg-[#F8F7F4]", component: <WhyUsSection /> },

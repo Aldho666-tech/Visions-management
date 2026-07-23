@@ -44,20 +44,20 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled || pathname !== "/"
           ? "bg-[#171717]/95 backdrop-blur-md py-3 sm:py-4 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
-          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-4 xs:py-5 sm:py-7 lg:py-8 text-[#F8F7F4]"
+          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-3.5 sm:py-7 lg:py-8 text-[#F8F7F4]"
       }`}
     >
-      {/* Container with Generous Breathing Room and Responsive Scaling */}
-      <div className="max-w-[1536px] mx-auto px-4 xs:px-6 sm:px-10 lg:px-14 flex items-center justify-between">
-        {/* Brand Logo - Responsive Typography & Icon (320px to 4K) */}
-        <Link href="/" className="flex items-center space-x-2.5 sm:space-x-4 group pr-2 shrink-0">
+      {/* Container with Flawless Proportions across Mobile (320px) to Desktop */}
+      <div className="max-w-[1536px] mx-auto px-3.5 sm:px-8 lg:px-14 flex items-center justify-between">
+        {/* Brand Logo - Compact Scaling on Small Mobile */}
+        <Link href="/" className="flex items-center space-x-2 sm:space-x-3.5 group shrink-0">
           <img
             src="/logo-vm.svg"
             alt="VM Icon"
-            className="h-7 xs:h-8 sm:h-10 md:h-11 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_16px_rgba(199,155,99,0.35)]"
+            className="h-6 xs:h-7 sm:h-10 md:h-11 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_16px_rgba(199,155,99,0.35)]"
           />
-          <span className="font-heading font-light tracking-[0.25em] xs:tracking-[0.32em] sm:tracking-[0.4em] lg:tracking-[0.45em] text-[11px] xs:text-xs sm:text-base lg:text-xl uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
-            VISIONS MANAGEMENT
+          <span className="font-heading font-light tracking-[0.2em] xs:tracking-[0.3em] sm:tracking-[0.4em] lg:tracking-[0.45em] text-[10px] xs:text-xs sm:text-base lg:text-xl uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
+            VISIONS<span className="hidden xs:inline"> MANAGEMENT</span>
           </span>
         </Link>
 
@@ -81,24 +81,24 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
           })}
         </nav>
 
-        {/* Right Action Area - Single Action Button + Hamburger Toggle */}
-        <div className="flex items-center space-x-2.5 sm:space-x-4 shrink-0">
-          {/* Single Action Button (Fluid Scale) */}
+        {/* Right Action Area - Perfectly Fitted Button + Menu Toggle */}
+        <div className="flex items-center space-x-2 sm:space-x-4 shrink-0">
+          {/* Single Action Button (Compact on Mobile to Prevent Overflow) */}
           <button
             onClick={onOpenProjectModal}
-            className="inline-flex items-center space-x-1.5 xs:space-x-2 px-3 xs:px-4 sm:px-6 py-1.5 xs:py-2 sm:py-2.5 text-[11px] xs:text-xs sm:text-sm font-light text-white border border-white/40 sm:border-2 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wide"
+            className="inline-flex items-center space-x-1 sm:space-x-2 px-2.5 xs:px-3.5 sm:px-6 py-1.5 sm:py-2.5 text-[10px] xs:text-xs sm:text-sm font-light text-white border border-white/40 sm:border-2 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wide"
           >
-            <span>Collabs With Us</span>
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+            <span>Collabs<span className="hidden xs:inline"> With Us</span></span>
+            <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
           </button>
 
           {/* Thin 3-Line Hamburger Menu Icon (Mobile & Tablet) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-[#F8F7F4] hover:text-[#C79B63] focus:outline-none transition-colors"
+            className="lg:hidden p-1 sm:p-1.5 text-[#F8F7F4] hover:text-[#C79B63] focus:outline-none transition-colors"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8" /> : <Menu className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 xs:w-6 xs:h-6 sm:w-8 sm:h-8" /> : <Menu className="w-5 h-5 xs:w-6 xs:h-6 sm:w-8 sm:h-8" />}
           </button>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-x-0 top-[56px] xs:top-[64px] sm:top-[80px] bg-[#171717]/98 backdrop-blur-2xl border-b border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col space-y-6 max-h-[calc(100vh-80px)] overflow-y-auto"
+            className="lg:hidden fixed inset-x-0 top-[52px] xs:top-[60px] sm:top-[75px] bg-[#171717]/98 backdrop-blur-2xl border-b border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col space-y-6 max-h-[calc(100vh-75px)] overflow-y-auto"
           >
             <div className="flex flex-col space-y-4 text-center">
               {navLinks.map((link) => (

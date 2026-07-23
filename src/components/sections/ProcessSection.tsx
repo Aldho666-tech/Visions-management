@@ -128,7 +128,7 @@ export default function ProcessSection() {
 
                   {/* Content Box */}
                   <div className="pl-10 sm:pl-14 md:pl-0 md:w-1/2 md:px-8 w-full">
-                    <div className="bg-[#1D2622]/90 backdrop-blur-md border border-white/10 hover:border-[#C79B63]/50 p-4 sm:p-6 rounded-xl transition-all shadow-xl group">
+                    <div className="bg-[#262626]/90 backdrop-blur-md border border-white/10 hover:border-[#C79B63]/50 p-4 sm:p-6 rounded-xl transition-all shadow-xl group">
                       <div className="flex items-center space-x-3 mb-1.5">
                         <span className="text-lg sm:text-xl font-light text-[#C79B63] font-mono">
                           {step.num}

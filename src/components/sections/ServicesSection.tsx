@@ -67,7 +67,7 @@ export default function ServicesSection({ onOpenProjectModal }: ServicesSectionP
   }
 
   return (
-    <section id="services" className="py-16 sm:py-24 bg-[#1D2622] text-[#F8F7F4] relative overflow-hidden font-heading font-light">
+    <section id="services" className="py-16 sm:py-24 bg-[#262626] text-[#F8F7F4] relative overflow-hidden font-heading font-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Title */}
         <div className="text-center mb-12 sm:mb-16">

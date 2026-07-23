@@ -11,7 +11,7 @@ interface FooterProps {
 
 export default function Footer({ onOpenProjectModal, onOpenTalentModal }: FooterProps) {
   return (
-    <footer className="bg-[#18211E] text-[#F8F7F4] pt-16 sm:pt-20 pb-10 border-t border-white/10 font-heading font-light">
+    <footer className="bg-[#171717] text-[#F8F7F4] pt-16 sm:pt-20 pb-10 border-t border-white/10 font-heading font-light">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         {/* Top 4-Column Layout (Matching Exact Proportions & Sizing of Reference Screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 sm:pb-16">
