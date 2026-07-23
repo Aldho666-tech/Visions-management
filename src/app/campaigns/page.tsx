@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+import StackedSection from "@/components/ui/StackedSection";
 import CampaignsSection from "@/components/sections/CampaignsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CtaSection from "@/components/sections/CtaSection";
@@ -14,39 +16,84 @@ export default function CampaignsPage() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [talentModalOpen, setTalentModalOpen] = useState(false);
 
+  const sections = [
+    {
+      id: "campaigns-banner",
+      bgClassName: "bg-[#171717]",
+      heightClass: "h-[220vh]",
+      component: (
+        <div className="w-full text-[#F8F7F4]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-4">
+            <span className="text-xs font-light tracking-[0.25em] text-[#C79B63] uppercase">CASE STUDIES & HIGHLIGHTS</span>
+            <h1 className="text-4xl sm:text-6xl font-light tracking-tight font-heading uppercase mt-2 text-white">Brand Campaigns</h1>
+          </div>
+          <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} />
+        </div>
+      ),
+    },
+    {
+      id: "testimonials",
+      bgClassName: "bg-[#F8F7F4]",
+      heightClass: "h-[200vh]",
+      component: <TestimonialsSection />,
+    },
+    {
+      id: "cta",
+      bgClassName: "bg-[#171717]",
+      heightClass: "h-[180vh]",
+      component: (
+        <CtaSection
+          onOpenProjectModal={() => setProjectModalOpen(true)}
+          onOpenTalentModal={() => setTalentModalOpen(true)}
+        />
+      ),
+    },
+    {
+      id: "contact",
+      bgClassName: "bg-[#1D2622]",
+      heightClass: "h-[100vh]",
+      component: (
+        <Footer
+          onOpenProjectModal={() => setProjectModalOpen(true)}
+          onOpenTalentModal={() => setTalentModalOpen(true)}
+        />
+      ),
+    },
+  ];
+
   return (
-    <main className="min-h-screen bg-[#171717] text-[#F8F7F4] selection:bg-[#C79B63] selection:text-white pt-24">
-      <CustomCursor />
-      <Navbar
-        onOpenProjectModal={() => setProjectModalOpen(true)}
-        onOpenTalentModal={() => setTalentModalOpen(true)}
-      />
+    <SmoothScroll>
+      <main className="min-h-screen bg-[#171717] text-[#F8F7F4] selection:bg-[#C79B63] selection:text-white">
+        <CustomCursor />
+        <Navbar
+          onOpenProjectModal={() => setProjectModalOpen(true)}
+          onOpenTalentModal={() => setTalentModalOpen(true)}
+        />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <span className="text-xs font-light tracking-[0.25em] text-[#C79B63] uppercase">CASE STUDIES & HIGHLIGHTS</span>
-        <h1 className="text-4xl sm:text-6xl font-light tracking-tight font-heading uppercase mt-2 text-white">Brand Campaigns</h1>
-      </div>
+        <div className="relative w-full">
+          {sections.map((sec, idx) => (
+            <StackedSection
+              key={sec.id}
+              id={sec.id}
+              index={idx}
+              totalSections={sections.length}
+              bgClassName={sec.bgClassName}
+              heightClass={sec.heightClass}
+            >
+              {sec.component}
+            </StackedSection>
+          ))}
+        </div>
 
-      <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} />
-      <TestimonialsSection />
-      <CtaSection
-        onOpenProjectModal={() => setProjectModalOpen(true)}
-        onOpenTalentModal={() => setTalentModalOpen(true)}
-      />
-
-      <Footer
-        onOpenProjectModal={() => setProjectModalOpen(true)}
-        onOpenTalentModal={() => setTalentModalOpen(true)}
-      />
-
-      <ProjectModal
-        isOpen={projectModalOpen}
-        onClose={() => setProjectModalOpen(false)}
-      />
-      <TalentModal
-        isOpen={talentModalOpen}
-        onClose={() => setTalentModalOpen(false)}
-      />
-    </main>
+        <ProjectModal
+          isOpen={projectModalOpen}
+          onClose={() => setProjectModalOpen(false)}
+        />
+        <TalentModal
+          isOpen={talentModalOpen}
+          onClose={() => setTalentModalOpen(false)}
+        />
+      </main>
+    </SmoothScroll>
   );
 }
