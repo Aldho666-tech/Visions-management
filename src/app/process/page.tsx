@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/ui/SmoothScroll";
-import StackedSection from "@/components/ui/StackedSection";
+import ParallaxFlowSection from "@/components/ui/ParallaxFlowSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
@@ -20,10 +20,9 @@ export default function ProcessPage() {
     {
       id: "process",
       bgClassName: "bg-[#171717]",
-      heightClass: "h-[220vh]",
       component: (
         <div className="w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
             <span className="text-xs font-light tracking-[0.25em] text-[#C79B63] uppercase">EXECUTION ROADMAP</span>
             <h1 className="text-4xl sm:text-6xl font-light tracking-tight font-heading uppercase mt-2 text-white">Our Process</h1>
           </div>
@@ -34,13 +33,11 @@ export default function ProcessPage() {
     {
       id: "stats",
       bgClassName: "bg-[#F8F7F4]",
-      heightClass: "h-[180vh]",
       component: <StatsSection />,
     },
     {
       id: "cta",
       bgClassName: "bg-[#171717]",
-      heightClass: "h-[180vh]",
       component: (
         <CtaSection
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -51,7 +48,7 @@ export default function ProcessPage() {
     {
       id: "contact",
       bgClassName: "bg-[#1D2622]",
-      heightClass: "h-[100vh]",
+      noPadding: true,
       component: (
         <Footer
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -63,7 +60,7 @@ export default function ProcessPage() {
 
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-[#171717] text-[#F8F7F4] selection:bg-[#C79B63] selection:text-white">
+      <main className="min-h-screen bg-[#171717] text-[#F8F7F4] selection:bg-[#C79B63] selection:text-white pt-16 lg:pt-0">
         <CustomCursor />
         <Navbar
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -71,17 +68,15 @@ export default function ProcessPage() {
         />
 
         <div className="relative w-full">
-          {sections.map((sec, idx) => (
-            <StackedSection
+          {sections.map((sec) => (
+            <ParallaxFlowSection
               key={sec.id}
               id={sec.id}
-              index={idx}
-              totalSections={sections.length}
               bgClassName={sec.bgClassName}
-              heightClass={sec.heightClass}
+              noPadding={sec.noPadding}
             >
               {sec.component}
-            </StackedSection>
+            </ParallaxFlowSection>
           ))}
         </div>
 

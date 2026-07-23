@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/ui/SmoothScroll";
-import StackedSection from "@/components/ui/StackedSection";
+import ParallaxFlowSection from "@/components/ui/ParallaxFlowSection";
 import PageHeroBanner from "@/components/ui/PageHeroBanner";
 import IntroSection from "@/components/sections/IntroSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
@@ -22,7 +22,7 @@ export default function AboutPage() {
     {
       id: "hero-banner",
       bgClassName: "bg-[#171717]",
-      heightClass: "h-[180vh]",
+      noPadding: true,
       component: (
         <PageHeroBanner
           category="AGENCY IDENTITY"
@@ -36,25 +36,21 @@ export default function AboutPage() {
     {
       id: "intro",
       bgClassName: "bg-[#F8F7F4]",
-      heightClass: "h-[200vh]",
       component: <IntroSection onNavigateServices={() => {}} />,
     },
     {
       id: "why-us",
       bgClassName: "bg-[#F8F7F4]",
-      heightClass: "h-[200vh]",
       component: <WhyUsSection />,
     },
     {
       id: "stats",
       bgClassName: "bg-[#F8F7F4]",
-      heightClass: "h-[180vh]",
       component: <StatsSection />,
     },
     {
       id: "cta",
       bgClassName: "bg-[#171717]",
-      heightClass: "h-[180vh]",
       component: (
         <CtaSection
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -65,7 +61,7 @@ export default function AboutPage() {
     {
       id: "contact",
       bgClassName: "bg-[#1D2622]",
-      heightClass: "h-[100vh]",
+      noPadding: true,
       component: (
         <Footer
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -85,17 +81,15 @@ export default function AboutPage() {
         />
 
         <div className="relative w-full">
-          {sections.map((sec, idx) => (
-            <StackedSection
+          {sections.map((sec) => (
+            <ParallaxFlowSection
               key={sec.id}
               id={sec.id}
-              index={idx}
-              totalSections={sections.length}
               bgClassName={sec.bgClassName}
-              heightClass={sec.heightClass}
+              noPadding={sec.noPadding}
             >
               {sec.component}
-            </StackedSection>
+            </ParallaxFlowSection>
           ))}
         </div>
 

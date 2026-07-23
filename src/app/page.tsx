@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
-import StackedSection from "@/components/ui/StackedSection";
+import ParallaxFlowSection from "@/components/ui/ParallaxFlowSection";
 import LuxuryPreloader from "@/components/ui/LuxuryPreloader";
 import Navbar from "@/components/Navbar";
 
@@ -34,51 +34,43 @@ export default function Home() {
   };
 
   const sections = [
-    { id: "vision", bgClassName: "bg-[#171717]", heightClass: "h-[200vh]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} /> },
-    { id: "about", bgClassName: "bg-[#F8F7F4]", heightClass: "h-[200vh]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
-    { id: "services", bgClassName: "bg-[#1D2622]", heightClass: "h-[220vh]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
-    { id: "process", bgClassName: "bg-[#171717]", heightClass: "h-[200vh]", component: <ProcessSection /> },
-    { id: "why-us", bgClassName: "bg-[#F8F7F4]", heightClass: "h-[200vh]", component: <WhyUsSection /> },
-    { id: "stats", bgClassName: "bg-[#F8F7F4]", heightClass: "h-[180vh]", component: <StatsSection /> },
-    { id: "creators", bgClassName: "bg-[#F8F7F4]", heightClass: "h-[200vh]", component: <CreatorsSection onOpenTalentModal={() => setTalentModalOpen(true)} /> },
-    { id: "campaigns", bgClassName: "bg-[#171717]", heightClass: "h-[220vh]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
-    { id: "testimonials", bgClassName: "bg-[#F8F7F4]", heightClass: "h-[200vh]", component: <TestimonialsSection /> },
-    { id: "cta", bgClassName: "bg-[#171717]", heightClass: "h-[180vh]", component: <CtaSection onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
-    { id: "contact", bgClassName: "bg-[#1D2622]", heightClass: "h-[100vh]", component: <Footer onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "vision", bgClassName: "bg-[#171717]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} />, noPadding: true },
+    { id: "about", bgClassName: "bg-[#F8F7F4]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
+    { id: "services", bgClassName: "bg-[#1D2622]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
+    { id: "process", bgClassName: "bg-[#171717]", component: <ProcessSection /> },
+    { id: "why-us", bgClassName: "bg-[#F8F7F4]", component: <WhyUsSection /> },
+    { id: "stats", bgClassName: "bg-[#F8F7F4]", component: <StatsSection /> },
+    { id: "creators", bgClassName: "bg-[#F8F7F4]", component: <CreatorsSection onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "campaigns", bgClassName: "bg-[#171717]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
+    { id: "testimonials", bgClassName: "bg-[#F8F7F4]", component: <TestimonialsSection /> },
+    { id: "cta", bgClassName: "bg-[#171717]", component: <CtaSection onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "contact", bgClassName: "bg-[#1D2622]", component: <Footer onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} />, noPadding: true },
   ];
 
   return (
     <SmoothScroll>
       <main className="min-h-screen bg-[#171717] text-[#171717] selection:bg-[#C79B63] selection:text-white relative">
-        {/* Luxury Preloader on Page Load & Refresh */}
         <LuxuryPreloader />
-
-        {/* Custom Mouse Cursor */}
         <CustomCursor />
-
-        {/* Header Navigation - Fixed z-50 above all stacked sections */}
+        
         <Navbar
           onOpenProjectModal={() => setProjectModalOpen(true)}
           onOpenTalentModal={() => setTalentModalOpen(true)}
         />
 
-        {/* STACKED SCROLL SECTIONS WRAPPER */}
         <div className="relative w-full">
-          {sections.map((sec, idx) => (
-            <StackedSection
+          {sections.map((sec) => (
+            <ParallaxFlowSection
               key={sec.id}
               id={sec.id}
-              index={idx}
-              totalSections={sections.length}
               bgClassName={sec.bgClassName}
-              heightClass={sec.heightClass}
+              noPadding={sec.noPadding}
             >
               {sec.component}
-            </StackedSection>
+            </ParallaxFlowSection>
           ))}
         </div>
 
-        {/* Interactive Modals */}
         <ProjectModal
           isOpen={projectModalOpen}
           onClose={() => setProjectModalOpen(false)}

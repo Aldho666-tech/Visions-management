@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/ui/SmoothScroll";
-import StackedSection from "@/components/ui/StackedSection";
+import ParallaxFlowSection from "@/components/ui/ParallaxFlowSection";
 import PageHeroBanner from "@/components/ui/PageHeroBanner";
 import CtaSection from "@/components/sections/CtaSection";
 import Footer from "@/components/Footer";
@@ -20,7 +20,7 @@ export default function ContactPage() {
     {
       id: "hero-banner",
       bgClassName: "bg-[#171717]",
-      heightClass: "h-[180vh]",
+      noPadding: true,
       component: (
         <PageHeroBanner
           category="GET IN TOUCH"
@@ -34,10 +34,9 @@ export default function ContactPage() {
     {
       id: "contact-info",
       bgClassName: "bg-[#F8F7F4]",
-      heightClass: "h-[220vh]",
       component: (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-6 bg-[#1D2622] text-[#F8F7F4] p-8 sm:p-12 rounded-3xl space-y-8 shadow-xl">
               <h2 className="text-2xl sm:text-3xl font-light uppercase tracking-wide font-heading">
                 Let&apos;s Architect Your Influence
@@ -127,7 +126,6 @@ export default function ContactPage() {
     {
       id: "cta",
       bgClassName: "bg-[#171717]",
-      heightClass: "h-[180vh]",
       component: (
         <CtaSection
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -138,7 +136,7 @@ export default function ContactPage() {
     {
       id: "contact",
       bgClassName: "bg-[#1D2622]",
-      heightClass: "h-[100vh]",
+      noPadding: true,
       component: (
         <Footer
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -150,7 +148,7 @@ export default function ContactPage() {
 
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-[#171717] text-[#171717] selection:bg-[#C79B63] selection:text-white">
+      <main className="min-h-screen bg-[#171717] text-[#171717] selection:bg-[#C79B63] selection:text-white relative">
         <CustomCursor />
         <Navbar
           onOpenProjectModal={() => setProjectModalOpen(true)}
@@ -158,17 +156,15 @@ export default function ContactPage() {
         />
 
         <div className="relative w-full">
-          {sections.map((sec, idx) => (
-            <StackedSection
+          {sections.map((sec) => (
+            <ParallaxFlowSection
               key={sec.id}
               id={sec.id}
-              index={idx}
-              totalSections={sections.length}
               bgClassName={sec.bgClassName}
-              heightClass={sec.heightClass}
+              noPadding={sec.noPadding}
             >
               {sec.component}
-            </StackedSection>
+            </ParallaxFlowSection>
           ))}
         </div>
 
