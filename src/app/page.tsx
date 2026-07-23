@@ -11,6 +11,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import IntroSection from "@/components/sections/IntroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import PartnersSection from "@/components/sections/PartnersSection";
+import ProcessSection from "@/components/sections/ProcessSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
 import StatsSection from "@/components/sections/StatsSection";
 import CampaignsSection from "@/components/sections/CampaignsSection";
@@ -32,12 +33,13 @@ export default function Home() {
     }
   };
 
-  // Clean, Streamlined Core Homepage Sequence
+  // Complete Luxury Homepage Section Sequence (Including 7-Step Process Roadmap)
   const sections = [
     { id: "vision", bgClassName: "bg-[#171717]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} />, noPadding: true },
     { id: "about", bgClassName: "bg-[#F8F7F4]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
     { id: "services", bgClassName: "bg-[#1D2622]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
     { id: "partners", bgClassName: "bg-[#DFE7EC]", component: <PartnersSection />, noPadding: true },
+    { id: "process", bgClassName: "bg-[#171717]", component: <ProcessSection /> },
     { id: "why-us", bgClassName: "bg-[#F8F7F4]", component: <WhyUsSection /> },
     { id: "stats", bgClassName: "bg-[#F8F7F4]", component: <StatsSection /> },
     { id: "campaigns", bgClassName: "bg-[#171717]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
