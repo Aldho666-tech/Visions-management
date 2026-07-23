@@ -75,7 +75,7 @@ export default function Home() {
           </ParallaxSection>
 
           {/* Section 06: STATS */}
-          <ParallaxSection id="stats" bgClassName="bg-[#1D2622]" speed={-30}>
+          <ParallaxSection id="stats" bgClassName="bg-[#F8F7F4]" speed={-30}>
             <StatsSection />
           </ParallaxSection>
 
