@@ -74,10 +74,10 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
         </motion.div>
       </div>
 
-      {/* Bottom Area: Seamless Floating Marquee (Transparent Background) & Responsive Info Bar */}
-      <div className="relative z-10 w-full pb-3 pt-0">
-        {/* Seamless Transparent Floating Running Text (Removed Black Strip Background) */}
-        <div className="w-full overflow-hidden select-none py-1.5 mb-1.5 border-y border-white/15 bg-transparent">
+      {/* Bottom Area: Pure Floating Marquee & Zero-Gap Bottom Info Bar */}
+      <div className="relative z-10 w-full pb-0 pt-0">
+        {/* Pure Floating Running Text (No Border Lines & No Box Background) */}
+        <div className="w-full overflow-hidden select-none py-1 mb-1 bg-transparent">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{
@@ -100,8 +100,8 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
           </motion.div>
         </div>
 
-        {/* Bottom 3-Column Info Bar (Fully Responsive on Mobile) */}
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-14">
+        {/* Bottom 3-Column Info Bar (Zero Bottom Padding - Completely Flush) */}
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-14 pb-2">
           <div className="border-t border-white/20 mb-2" />
 
           <div className="flex items-center justify-between text-xs text-neutral-300 font-light tracking-wider">
@@ -109,14 +109,14 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
             <div className="flex items-center">
               <button
                 onClick={onExploreWork}
-                className="p-1.5 rounded-full border border-white/30 hover:border-[#C79B63] hover:bg-white/10 text-white transition-all group"
+                className="p-1 rounded-full border border-white/30 hover:border-[#C79B63] hover:bg-white/10 text-white transition-all group"
                 aria-label="Scroll down to explore"
               >
                 <ArrowDown className="w-3.5 h-3.5 text-[#C79B63] transform group-hover:translate-y-0.5 transition-transform" />
               </button>
             </div>
 
-            {/* Center: Statement Text (Responsive Truncation / Scale) */}
+            {/* Center: Statement Text */}
             <div className="text-center text-[10px] xs:text-[11px] sm:text-xs text-neutral-300 max-w-xl mx-auto leading-relaxed px-2 truncate sm:whitespace-normal">
               Visions Management — Connecting your business with elite global partners.
             </div>
