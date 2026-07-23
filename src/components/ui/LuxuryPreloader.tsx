@@ -10,7 +10,7 @@ export default function LuxuryPreloader() {
     // Runs preloader on every initial open & page refresh
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -23,49 +23,50 @@ export default function LuxuryPreloader() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 1, ease: "easeInOut" },
+            transition: { duration: 0.8, ease: "easeInOut" },
           }}
           className="fixed inset-0 z-50 bg-[#171717] text-[#F8F7F4] flex flex-col items-center justify-center select-none overflow-hidden font-heading font-light"
         >
-          <div className="flex flex-col items-center text-center px-4 max-w-xl mx-auto">
-            {/* Extra Large Prominent Animated Official VM SVG Logo Icon Only */}
+          {/* Tight & Compact Centered Container */}
+          <div className="flex flex-col items-center text-center px-4 max-w-lg mx-auto">
+            {/* VM SVG Monogram Logo */}
             <motion.img
               src="/logo-vm.svg"
               alt="VISIONS MANAGEMENT Logo"
-              initial={{ opacity: 0, scale: 0.85 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{
-                opacity: [0.4, 1, 0.75, 1],
-                scale: [0.95, 1.08, 0.98, 1.04],
+                opacity: [0.5, 1, 0.8, 1],
+                scale: [0.96, 1.02, 0.98, 1.01],
               }}
               transition={{
-                duration: 2.5,
+                duration: 2,
                 ease: "easeInOut",
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-              className="w-64 h-64 sm:w-96 sm:h-96 object-contain filter drop-shadow-[0_0_60px_rgba(199,155,99,0.5)]"
+              className="w-32 h-24 sm:w-44 sm:h-32 object-contain filter drop-shadow-[0_0_25px_rgba(199,155,99,0.4)]"
             />
 
-            {/* Gold Accent Pulse Line */}
+            {/* Tight Gold Accent Line */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
               animate={{
-                width: "220px",
-                opacity: [0.2, 1, 0.4, 1],
+                width: "160px",
+                opacity: [0.3, 1, 0.4, 1],
               }}
               transition={{
-                width: { duration: 1.2, delay: 0.4 },
-                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
+                width: { duration: 0.8, delay: 0.3 },
+                opacity: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
               }}
-              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-8"
+              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-3 sm:my-4"
             />
 
-            {/* Animated Tagline Text */}
+            {/* Tight Tagline Text */}
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] text-[#C79B63] uppercase"
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] text-[#C79B63] uppercase leading-tight"
             >
               A STRATEGY-LED CREATOR MARKETING JOURNEY
             </motion.p>
