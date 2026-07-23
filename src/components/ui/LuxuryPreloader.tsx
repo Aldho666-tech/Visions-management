@@ -7,17 +7,9 @@ export default function LuxuryPreloader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if preloader ran during current session to avoid annoying user on subpage navigation
-    const hasSeen = sessionStorage.getItem("visions_preloader_seen");
-    if (hasSeen) {
-      setLoading(false);
-      return;
-    }
-
-    // 5 Seconds Duration as requested
+    // Runs preloader on every initial open & page refresh
     const timer = setTimeout(() => {
       setLoading(false);
-      sessionStorage.setItem("visions_preloader_seen", "true");
     }, 5000);
 
     return () => clearTimeout(timer);
