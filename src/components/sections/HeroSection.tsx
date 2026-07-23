@@ -74,10 +74,10 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
         </motion.div>
       </div>
 
-      {/* Bottom Area: Refined Compact Marquee & Responsive Info Bar */}
+      {/* Bottom Area: Seamless Floating Marquee (Transparent Background) & Responsive Info Bar */}
       <div className="relative z-10 w-full pb-3 pt-0">
-        {/* Responsive Running Text Scale */}
-        <div className="w-full overflow-hidden select-none py-1.5 mb-1.5 border-y border-white/10 bg-black/40 backdrop-blur-sm">
+        {/* Seamless Transparent Floating Running Text (Removed Black Strip Background) */}
+        <div className="w-full overflow-hidden select-none py-1.5 mb-1.5 border-y border-white/15 bg-transparent">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{
@@ -91,7 +91,7 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
               <span
                 key={index}
                 className={`font-heading font-light text-2xl xs:text-3xl sm:text-5xl lg:text-6xl leading-none uppercase tracking-tight ${
-                  item === "•" ? "text-[#C79B63]" : "text-white/90 drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]"
+                  item === "•" ? "text-[#C79B63]" : "text-white/90 drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]"
                 }`}
               >
                 {item}
