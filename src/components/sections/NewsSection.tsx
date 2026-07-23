@@ -54,16 +54,16 @@ export default function NewsSection() {
   ];
 
   return (
-    <section id="news" className="py-24 sm:py-36 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
+    <section id="news" className="py-12 sm:py-16 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-neutral-300 gap-8">
-          <div className="space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-neutral-300 gap-6">
+          <div className="space-y-2">
             <div className="inline-flex items-center space-x-2 text-xs font-light tracking-[0.3em] text-[#C79B63] uppercase">
               <Newspaper className="w-4 h-4" />
               <span>INSIGHTS & ANNOUNCEMENTS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light uppercase tracking-tight text-[#171717] leading-none">
+            <h2 className="text-3xl sm:text-5xl font-light uppercase tracking-tight text-[#171717] leading-none">
               News & <span className="font-serif italic font-normal text-[#C79B63]">Press</span>
             </h2>
           </div>
@@ -74,37 +74,37 @@ export default function NewsSection() {
         </div>
 
         {/* Featured Editorial Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {newsArticles.map((article, idx) => (
             <motion.div
               key={article.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="bg-white border border-neutral-200/80 hover:border-[#C79B63] transition-all group flex flex-col justify-between p-6 sm:p-8 space-y-6 shadow-sm hover:shadow-xl"
+              className="bg-white border border-neutral-200/80 hover:border-[#C79B63] transition-all group flex flex-col justify-between p-6 space-y-6 shadow-sm hover:shadow-xl"
             >
-              <div className="space-y-5">
+              <div className="space-y-4">
                 {/* Image Thumbnail */}
-                <div className="relative h-56 w-full overflow-hidden bg-neutral-100">
+                <div className="relative h-48 w-full overflow-hidden bg-neutral-100">
                   <img
                     src={article.image}
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
                   />
-                  <div className="absolute top-4 left-4 bg-[#171717] text-[#F8F7F4] text-[10px] tracking-[0.2em] font-mono uppercase px-3 py-1">
+                  <div className="absolute top-3 left-3 bg-[#171717] text-[#F8F7F4] text-[9px] tracking-[0.2em] font-mono uppercase px-2.5 py-1">
                     {article.category}
                   </div>
                 </div>
 
                 {/* Date & Meta */}
-                <div className="flex items-center space-x-2 text-[11px] font-mono text-[#C79B63] uppercase tracking-wider">
+                <div className="flex items-center space-x-2 text-[10px] font-mono text-[#C79B63] uppercase tracking-wider">
                   <Calendar className="w-3.5 h-3.5" />
                   <span>{article.date}</span>
                 </div>
 
                 {/* Headline Title */}
-                <h3 className="text-lg sm:text-xl font-light text-[#171717] tracking-tight leading-snug font-heading group-hover:text-[#C79B63] transition-colors">
+                <h3 className="text-base sm:text-lg font-light text-[#171717] tracking-tight leading-snug font-heading group-hover:text-[#C79B63] transition-colors">
                   {article.title}
                 </h3>
 
@@ -115,7 +115,7 @@ export default function NewsSection() {
               </div>
 
               {/* Read Full Article Button */}
-              <div className="pt-4 border-t border-neutral-100">
+              <div className="pt-3 border-t border-neutral-100">
                 <button
                   onClick={() => setSelectedArticle(article)}
                   className="inline-flex items-center space-x-2 text-xs font-light tracking-wider text-[#171717] border-b border-[#C79B63] hover:border-[#171717] pb-1 transition-all group-hover:text-[#C79B63]"

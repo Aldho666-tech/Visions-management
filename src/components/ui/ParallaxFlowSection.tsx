@@ -7,7 +7,7 @@ interface ParallaxFlowSectionProps {
   children: React.ReactNode;
   id?: string;
   bgClassName?: string;
-  noPadding?: boolean; // useful for Hero banners that want edge-to-edge
+  noPadding?: boolean;
 }
 
 export default function ParallaxFlowSection({
@@ -51,14 +51,14 @@ export default function ParallaxFlowSection({
         className={`absolute top-0 left-0 w-full h-[125%] z-0 pointer-events-none ${bgClassName}`}
       />
 
-      {/* Foreground Content Layer */}
+      {/* Foreground Content Layer with Tight Compact Padding */}
       <motion.div
         style={{ y: yFg }}
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.05 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`relative z-10 w-full h-full flex flex-col justify-center ${noPadding ? "" : "py-24 sm:py-32"}`}
+        className={`relative z-10 w-full h-full flex flex-col justify-center ${noPadding ? "" : "py-4 sm:py-6"}`}
       >
         {children}
       </motion.div>

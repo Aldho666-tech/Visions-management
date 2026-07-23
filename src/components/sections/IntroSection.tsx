@@ -10,17 +10,17 @@ interface IntroSectionProps {
 
 export default function IntroSection({ onNavigateServices }: IntroSectionProps) {
   return (
-    <section id="about" className="py-24 sm:py-36 bg-[#F8F7F4] text-[#171717] relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Header - HOTSTONE Layout */}
-        <div className="mb-16">
+        {/* Top Header - Partnership Agency Positioning */}
+        <div className="mb-12 sm:mb-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs sm:text-sm font-light tracking-[0.2em] text-neutral-500 uppercase mb-4"
+            className="text-xs sm:text-sm font-mono font-medium tracking-[0.25em] text-[#C79B63] uppercase mb-4"
           >
-            VISIONS MANAGEMENT Creative Agency — Digital Growth & Talent Roster
+            VISIONS MANAGEMENT — PREMIER PARTNERSHIP AGENCY
           </motion.p>
 
           <motion.h2
@@ -28,14 +28,14 @@ export default function IntroSection({ onNavigateServices }: IntroSectionProps) 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-[1.15] font-heading max-w-5xl"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] font-heading max-w-5xl text-[#171717]"
           >
-            A <span className="text-[#C79B63] font-normal">Strategy-Led</span> Creator Marketing Journey
+            Connecting <span className="text-[#C79B63] font-normal italic font-serif">Your Business</span> To Global Opportunities
           </motion.h2>
         </div>
 
         {/* Narrative & Action Line */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function IntroSection({ onNavigateServices }: IntroSectionProps) 
             className="lg:col-span-8"
           >
             <p className="text-neutral-600 text-base sm:text-lg font-light leading-relaxed max-w-3xl">
-              Instead of chasing temporary trends, we architect enduring digital influence. From influencer campaigns, content production, social media strategy, to long-term talent representation—we scale brands through authentic storytelling and measurable performance.
+              Visions Management is not a social media agency—we are a premier partnership agency dedicated to connecting your business with elite creators, multinational brand networks, and high-revenue commercial opportunities. We bridge vision with execution.
             </p>
           </motion.div>
 
@@ -57,40 +57,40 @@ export default function IntroSection({ onNavigateServices }: IntroSectionProps) 
           >
             <button
               onClick={onNavigateServices}
-              className="inline-flex items-center space-x-2 text-xs font-light tracking-[0.2em] uppercase text-[#171717] border-b border-[#171717]/40 hover:border-[#171717] pb-1 transition-all group"
+              className="inline-flex items-center space-x-2 text-xs font-light tracking-[0.2em] uppercase text-[#171717] border-b border-[#C79B63] hover:border-[#171717] pb-1 transition-all group hover:text-[#C79B63]"
             >
-              <span>Our Services</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>EXPLORE PARTNERSHIPS</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#C79B63] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </motion.div>
         </div>
 
-        {/* Editorial Photo Visual Banner */}
+        {/* Visual Banner - Black, Grey, White, Gold Concept */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
-          className="relative w-full h-[400px] sm:h-[600px] overflow-hidden group shadow-xl"
+          className="relative w-full h-[360px] sm:h-[500px] overflow-hidden group shadow-2xl border border-neutral-300"
         >
           <img
             src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=2000"
-            alt="Studio Photoshoot Visions Management"
-            className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-1000"
+            alt="Visions Management Strategic Partnership"
+            className="w-full h-full object-cover filter brightness-90 contrast-105 group-hover:scale-105 transition-transform duration-1000"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-[#171717]/30 to-transparent" />
           
           <div className="absolute bottom-8 left-8 right-8 flex flex-col sm:flex-row items-start sm:items-end justify-between text-white">
-            <div>
-              <span className="text-xs uppercase tracking-[0.25em] font-light text-[#C79B63] block mb-1">
-                EDITORIAL PRODUCTION & VISUAL DIRECTION
+            <div className="space-y-1">
+              <span className="text-xs uppercase tracking-[0.25em] font-mono text-[#C79B63] block">
+                OFFICIAL AGENCY MOTO
               </span>
-              <h3 className="text-xl sm:text-3xl font-light tracking-wide uppercase font-heading">
-                High Fashion & Digital Influencer Campaigns
+              <h3 className="text-xl sm:text-3xl font-light tracking-wide uppercase font-heading text-white">
+                Connecting Your Business
               </h3>
             </div>
-            <div className="mt-4 sm:mt-0 text-[10px] text-neutral-300 font-mono tracking-widest uppercase border-b border-white/40 pb-1">
-              JAKARTA STUDIO 01
+            <div className="mt-4 sm:mt-0 text-[10px] text-neutral-300 font-mono tracking-widest uppercase border-b border-[#C79B63] pb-1">
+              GLOBAL PARTNERSHIP NETWORK 2026
             </div>
           </div>
         </motion.div>

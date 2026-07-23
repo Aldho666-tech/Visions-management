@@ -50,11 +50,11 @@ export default function LuxuryPreloader() {
                   repeatDelay: 0.6,
                   ease: "easeInOut",
                 }}
-                className="absolute inset-y-0 z-20 w-24 sm:w-28 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay"
+                className="absolute inset-y-0 z-20 w-24 sm:w-28 bg-gradient-to-r from-transparent via-[#C79B63]/60 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay"
               />
             </div>
 
-            {/* ELEMENTIS-Style Responsive Tracked Typography (Fits 320px - 1440px seamlessly) */}
+            {/* ELEMENTIS-Style Responsive Tracked Typography */}
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,14 +79,14 @@ export default function LuxuryPreloader() {
               className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-4 sm:my-5"
             />
 
-            {/* Subtitle Tagline */}
+            {/* Official Partnership Agency Moto */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-[9px] sm:text-xs font-mono tracking-[0.18em] sm:tracking-[0.28em] text-[#C79B63] uppercase leading-tight max-w-[280px] sm:max-w-none"
+              className="text-[10px] sm:text-xs font-mono tracking-[0.25em] sm:tracking-[0.35em] text-[#C79B63] uppercase leading-tight max-w-[320px] sm:max-w-none"
             >
-              A STRATEGY-LED CREATOR MARKETING JOURNEY
+              CONNECTING YOUR BUSINESS
             </motion.p>
           </div>
         </motion.div>

@@ -73,10 +73,10 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="py-24 sm:py-36 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
+    <section className="py-12 sm:py-16 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         {/* Photo 1 Style Stats Grid - Clean Unclipped Vertical Stack with Left Line Dividers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {stats.map((stat, idx) => (
             <motion.div
               key={stat.label}
@@ -101,7 +101,7 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.18 + 0.2 }}
-                className="text-6xl sm:text-7xl md:text-8xl xl:text-[96px] font-light text-[#171717] tracking-tight leading-none font-heading mb-6 shrink-0"
+                className="text-5xl sm:text-6xl md:text-7xl xl:text-[84px] font-light text-[#171717] tracking-tight leading-none font-heading mb-4 shrink-0"
               >
                 <CounterNumber value={stat.number} suffix={stat.suffix} />
               </motion.div>
@@ -114,10 +114,10 @@ export default function StatsSection() {
                 transition={{ duration: 0.6, delay: idx * 0.18 + 0.3 }}
                 className="text-neutral-600 font-light"
               >
-                <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#171717] leading-snug mb-2 font-heading">
+                <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#171717] leading-snug mb-1.5 font-heading">
                   {stat.label}
                 </h3>
-                <p className="text-xs sm:text-[13px] text-neutral-500 font-light leading-relaxed">
+                <p className="text-xs text-neutral-500 font-light leading-relaxed">
                   {stat.desc}
                 </p>
               </motion.div>
