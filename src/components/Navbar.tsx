@@ -61,7 +61,7 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
           </span>
         </Link>
 
-        {/* Desktop Nav Links - Clean Luxury Dedicated Pages Navigation */}
+        {/* Desktop Nav Links - Clean Luxury Navigation */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-10 text-xs xl:text-[13px] tracking-[0.2em] font-light text-neutral-200 mx-4">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -81,33 +81,30 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
           })}
         </nav>
 
-        {/* Right Action Buttons */}
-        <div className="hidden sm:flex items-center space-x-3 lg:space-x-4 shrink-0">
+        {/* Right Action Area - ELEMENTIS-Style Outline Button + Menu Toggle */}
+        <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
+          {/* Start Project Button */}
           <button
             onClick={onOpenProjectModal}
-            className="px-4 lg:px-5 py-2 text-[11px] lg:text-xs tracking-[0.18em] lg:tracking-[0.2em] font-light uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap"
+            className="hidden sm:inline-flex items-center space-x-1.5 px-4 sm:px-5 py-2 text-xs font-light text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wide"
           >
-            START PROJECT
+            <span>Start Project</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-white" />
           </button>
+
+          {/* Join Us / Talent Button (Exact ELEMENTIS Reference Screenshot Style) */}
           <button
             onClick={onOpenTalentModal}
-            className="px-4 lg:px-5 py-2 text-[11px] lg:text-xs tracking-[0.18em] lg:tracking-[0.2em] font-light uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap"
+            className="inline-flex items-center space-x-1.5 px-4 sm:px-5 py-2 text-xs font-light text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wide"
           >
-            JOIN AS TALENT
+            <span>Join Us</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-white" />
           </button>
-        </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="lg:hidden flex items-center space-x-3">
-          <button
-            onClick={onOpenProjectModal}
-            className="sm:hidden px-3.5 py-1.5 bg-white/10 text-white font-light text-xs uppercase tracking-[0.18em] border border-white/30"
-          >
-            START
-          </button>
+          {/* Thin 3-Line Hamburger Menu Icon (Exact ELEMENTIS Reference Screenshot Style) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 text-[#F8F7F4] hover:text-[#C79B63] focus:outline-none"
+            className="lg:hidden p-1.5 text-[#F8F7F4] hover:text-[#C79B63] focus:outline-none transition-colors"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -144,9 +141,9 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
                   setMobileMenuOpen(false);
                   if (onOpenProjectModal) onOpenProjectModal();
                 }}
-                className="w-full py-3 border border-white/40 text-white font-light text-xs uppercase tracking-[0.2em] flex items-center justify-center space-x-2"
+                className="w-full py-3 border border-white/40 text-white font-light text-xs tracking-[0.2em] uppercase flex items-center justify-center space-x-2"
               >
-                <span>START PROJECT</span>
+                <span>Start Project</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
 
@@ -155,9 +152,10 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
                   setMobileMenuOpen(false);
                   if (onOpenTalentModal) onOpenTalentModal();
                 }}
-                className="w-full py-3 border border-white/40 text-white font-light text-xs uppercase tracking-[0.2em]"
+                className="w-full py-3 border border-white/40 text-white font-light text-xs tracking-[0.2em] uppercase flex items-center justify-center space-x-2"
               >
-                JOIN AS TALENT
+                <span>Join Us</span>
+                <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </motion.div>
