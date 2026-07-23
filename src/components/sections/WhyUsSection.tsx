@@ -2,116 +2,136 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Target, Users, Film, TrendingUp, Globe, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function WhyUsSection() {
-  const reasons = [
+  const cards = [
     {
-      icon: Target,
-      num: "01",
-      title: "STRATEGY FIRST",
+      id: "01",
+      title: "Strategy First",
       desc: "Every campaign starts with empirical data, audience demographics, and strategic positioning before creative execution.",
+      isFeatured: false,
+      iconSvg: (
+        <svg className="w-12 h-12 stroke-[1.25] text-[#2D5A47]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="12" stroke="currentColor" />
+          <circle cx="28" cy="20" r="12" stroke="currentColor" />
+          <circle cx="20" cy="28" r="12" stroke="currentColor" />
+          <circle cx="28" cy="28" r="12" stroke="currentColor" />
+        </svg>
+      ),
     },
     {
-      icon: Users,
-      num: "02",
-      title: "CURATED TALENTS",
-      desc: "We represent vetted creators and macro/micro KOLs who genuinely align with your core brand identity and values.",
+      id: "02",
+      title: "Curated Talents & Expansion",
+      desc: "We represent vetted creators and macro/micro KOLs across Indonesia who genuinely align with your core brand identity and values.",
+      isFeatured: true,
+      iconSvg: (
+        <svg className="w-12 h-12 stroke-[1.25] text-[#171717]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="6" width="20" height="20" rx="4" transform="rotate(45 24 16)" stroke="currentColor" />
+          <rect x="14" y="18" width="20" height="20" rx="4" transform="rotate(45 24 28)" stroke="currentColor" />
+        </svg>
+      ),
     },
     {
-      icon: Film,
-      num: "03",
-      title: "CREATIVE EXCELLENCE",
-      desc: "In-house editorial studio production, styling, and high-impact visual aesthetics designed to captivate audience scroll.",
-    },
-    {
-      icon: TrendingUp,
-      num: "04",
-      title: "PERFORMANCE DRIVEN",
-      desc: "We prioritize conversions, brand lift, engagement, and sales over vanity metrics with full real-time dashboard analytics.",
-    },
-    {
-      icon: Globe,
-      num: "05",
-      title: "NATIONWIDE NETWORK",
-      desc: "Instant access to a diverse ecosystem of creators across Indonesia spanning lifestyle, beauty, tech, food, and fashion.",
+      id: "03",
+      title: "Creative & Performance Excellence",
+      desc: "In-house studio production, conversion-driven metrics, and real-time dashboard analytics designed to elevate commercial ROI.",
+      isFeatured: false,
+      iconSvg: (
+        <svg className="w-12 h-12 stroke-[1.25] text-[#2D5A47]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="18" stroke="currentColor" />
+          <circle cx="24" cy="24" r="12" stroke="currentColor" />
+          <circle cx="24" cy="24" r="6" stroke="currentColor" fill="currentColor" fillOpacity="0.1" />
+        </svg>
+      ),
     },
   ];
 
   return (
-    <section className="py-24 sm:py-36 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading font-light">
+    <section className="py-24 sm:py-36 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+        {/* Top Header - Exact Image 2 Reference Layout */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
           <div>
-            <motion.div
+            {/* Small Category Badge */}
+            <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 text-[#C79B63] text-xs font-light tracking-[0.25em] uppercase mb-3"
+              className="text-[#2D5A47] font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>THE VISIONS ADVANTAGE</span>
-            </motion.div>
+              VALUES
+            </motion.span>
 
+            {/* Main Headline */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight uppercase leading-tight font-heading"
+              className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-[#171717] leading-[1.08] font-heading"
             >
-              WHY BRANDS CHOOSE <span className="text-[#C79B63] font-normal">VISIONS.</span>
+              Why Brands Choose,
+              <br />
+              <span className="font-semibold text-[#171717]">VISIONS.</span>
             </motion.h2>
           </div>
 
+          {/* Right Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-neutral-500 max-w-md text-xs sm:text-sm font-light leading-relaxed"
+            className="text-neutral-600 max-w-sm text-sm sm:text-base font-light leading-relaxed"
           >
             We bridge the gap between creative storytelling and commercial growth with an international agency standard.
           </motion.p>
         </div>
 
-        {/* Distinct 5-Card White Light Mode Grid (Matching Reference Screenshot) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((item, idx) => {
-            const IconComponent = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="bg-white border border-[#D8D8D8]/50 hover:border-[#C79B63] p-8 sm:p-10 rounded-[28px] transition-all duration-300 shadow-sm hover:shadow-xl group flex flex-col justify-between hover:-translate-y-1"
-              >
-                <div>
-                  {/* Top Minimalist Icon Container */}
-                  <div className="w-12 h-12 rounded-2xl bg-[#F8F7F4] group-hover:bg-[#171717] flex items-center justify-center text-[#171717] group-hover:text-[#C79B63] transition-colors mb-8">
-                    <IconComponent className="w-5 h-5 stroke-[1.5]" />
+        {/* 3-Card Grid Matching Image 2 Reference Exactly */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          {cards.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              className={`p-8 sm:p-10 flex flex-col justify-between min-h-[440px] transition-all duration-300 group ${
+                item.isFeatured
+                  ? "bg-[#EBE7DF] rounded-tl-[8px] rounded-tr-[8px] rounded-bl-[8px] rounded-br-[90px] shadow-sm hover:shadow-md"
+                  : "bg-white border border-neutral-200/90 rounded-[8px] hover:border-neutral-400 shadow-sm hover:shadow-md"
+              }`}
+            >
+              {/* Top Icon */}
+              <div className="mb-12">{item.iconSvg}</div>
+
+              {/* Middle & Bottom Content */}
+              <div>
+                {/* Title & Description */}
+                <h3 className="text-xl sm:text-2xl font-medium text-[#171717] mb-3 leading-snug font-heading">
+                  {item.title}
+                </h3>
+                <p className="text-neutral-600 text-xs sm:text-sm font-light leading-relaxed mb-12">
+                  {item.desc}
+                </p>
+
+                {/* Bottom Circle Arrow Button ↗ */}
+                <div className="pt-2">
+                  <div
+                    className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
+                      item.isFeatured
+                        ? "bg-[#2D5A47] text-white group-hover:scale-105"
+                        : "border border-neutral-300 text-neutral-700 group-hover:bg-[#171717] group-hover:text-white group-hover:border-[#171717]"
+                    }`}
+                  >
+                    <ArrowUpRight className="w-4 h-4 stroke-[2]" />
                   </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-lg font-light tracking-wider uppercase text-[#171717] mb-3 group-hover:text-[#C79B63] transition-colors font-heading">
-                    {item.title}
-                  </h3>
-                  <p className="text-neutral-500 text-xs font-light leading-relaxed mb-8">
-                    {item.desc}
-                  </p>
                 </div>
-
-                {/* Bottom Card Footer Bar (ADVANTAGE 01 | 100% VETTED) */}
-                <div className="pt-4 border-t border-neutral-100 flex items-center justify-between text-[10px] font-mono tracking-widest text-neutral-400">
-                  <span>ADVANTAGE {item.num}</span>
-                  <span className="text-[#C79B63] font-semibold">100% VETTED</span>
-                </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
