@@ -76,23 +76,23 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
         </motion.div>
       </div>
 
-      {/* Bottom Container: Refined Running Text Sitting Snug Above Thin Bottom Line */}
-      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-4 sm:px-10 lg:px-14 pb-6 pt-0">
-        {/* Refined Floating Marquee Running Text - No Top/Bottom Clipping & Sized Elegantly */}
-        <div className="w-full overflow-hidden select-none py-3 mb-1">
+      {/* Bottom Area: Edge-to-Edge Unclipped Marquee + Bottom Info Line */}
+      <div className="relative z-10 w-full pb-6 pt-0">
+        {/* Edge-to-Edge Full Viewport Width Marquee (Unconstrained horizontally & vertically) */}
+        <div className="w-full overflow-hidden select-none py-4 mb-2">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               repeat: Infinity,
               ease: "linear",
-              duration: 30,
+              duration: 28,
             }}
             className="flex items-center whitespace-nowrap space-x-8 sm:space-x-12 w-max py-2"
           >
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
               <span
                 key={index}
-                className={`font-heading font-extralight text-[5.5vw] sm:text-[6.5vw] md:text-[7vw] leading-normal uppercase tracking-tight ${
+                className={`font-heading font-extralight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-relaxed uppercase tracking-tight ${
                   item === "•" ? "text-[#C79B63]" : "text-white/90 drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
                 }`}
               >
@@ -102,39 +102,41 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
           </motion.div>
         </div>
 
-        {/* Snug Thin Horizontal Divider */}
-        <div className="border-t border-white/25 mb-4" />
+        {/* Snug Thin Horizontal Divider & Bottom Info Bar */}
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-14">
+          <div className="border-t border-white/25 mb-4" />
 
-        {/* Bottom 3-Column Info Bar */}
-        <div className="grid grid-cols-12 items-center text-xs text-neutral-300 font-light tracking-wider">
-          {/* Left: Downward Arrow Button */}
-          <div className="col-span-2 sm:col-span-2 flex items-center">
-            <button
+          {/* Bottom 3-Column Info Bar */}
+          <div className="grid grid-cols-12 items-center text-xs text-neutral-300 font-light tracking-wider">
+            {/* Left: Downward Arrow Button */}
+            <div className="col-span-2 sm:col-span-2 flex items-center">
+              <button
+                onClick={onExploreWork}
+                className="p-2 rounded-full border border-white/30 hover:border-white hover:bg-white/10 text-white transition-all group"
+                aria-label="Scroll down to explore"
+              >
+                <ArrowDown className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" />
+              </button>
+            </div>
+
+            {/* Center: Statement Text */}
+            <div className="col-span-8 sm:col-span-8 text-center text-[11px] sm:text-xs text-neutral-300 max-w-xl mx-auto leading-relaxed">
+              A strategy-led creator marketing journey connecting iconic brands with elite creators.
+            </div>
+
+            {/* Right: Scroll to Explore */}
+            <div
               onClick={onExploreWork}
-              className="p-2 rounded-full border border-white/30 hover:border-white hover:bg-white/10 text-white transition-all group"
-              aria-label="Scroll down to explore"
+              className="col-span-2 sm:col-span-2 flex items-center justify-end space-x-2 text-[11px] uppercase tracking-[0.2em] text-neutral-300 hover:text-white cursor-pointer transition-colors"
             >
-              <ArrowDown className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" />
-            </button>
-          </div>
-
-          {/* Center: Statement Text */}
-          <div className="col-span-8 sm:col-span-8 text-center text-[11px] sm:text-xs text-neutral-300 max-w-xl mx-auto leading-relaxed">
-            A strategy-led creator marketing journey connecting iconic brands with elite creators.
-          </div>
-
-          {/* Right: Scroll to Explore */}
-          <div
-            onClick={onExploreWork}
-            className="col-span-2 sm:col-span-2 flex items-center justify-end space-x-2 text-[11px] uppercase tracking-[0.2em] text-neutral-300 hover:text-white cursor-pointer transition-colors"
-          >
-            <span className="hidden sm:inline">Scroll to Explore</span>
-            <motion.div
-              animate={{ y: [0, 4, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <ArrowDown className="w-3.5 h-3.5 text-[#C79B63]" />
-            </motion.div>
+              <span className="hidden sm:inline">Scroll to Explore</span>
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <ArrowDown className="w-3.5 h-3.5 text-[#C79B63]" />
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
