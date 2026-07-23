@@ -50,22 +50,21 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
       </div>
 
       {/* Top Spacer for Floating Navbar */}
-      <div className="h-32 sm:h-36" />
+      <div className="h-28 sm:h-32" />
 
-      {/* Main Hero Content Stack */}
-      <div className="relative z-10 my-auto flex flex-col items-center justify-center w-full">
-        {/* Main Headline & Read More CTA */}
+      {/* Center Headline & CTA */}
+      <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-center px-4 max-w-4xl mx-auto mb-8"
+          className="flex flex-col items-center"
         >
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-[1.1] font-heading text-white text-balance drop-shadow-lg">
             Your Influence Journey
           </h1>
 
-          <div className="mt-6">
+          <div className="mt-6 sm:mt-8">
             <button
               onClick={onExploreWork}
               className="inline-flex items-center space-x-2 text-xs sm:text-sm font-light tracking-[0.22em] uppercase text-white border-b border-white/60 hover:border-white pb-1.5 transition-all group"
@@ -75,23 +74,26 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
             </button>
           </div>
         </motion.div>
+      </div>
 
-        {/* Elementis-Style Pure Floating Marquee Running Text (NO Dark Background Strip!) */}
-        <div className="w-full overflow-hidden select-none py-2 my-4">
+      {/* Bottom Container: Refined Running Text Sitting Snug Above Thin Bottom Line */}
+      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-4 sm:px-10 lg:px-14 pb-6 pt-0">
+        {/* Refined Floating Marquee Running Text - No Top/Bottom Clipping & Sized Elegantly */}
+        <div className="w-full overflow-hidden select-none py-3 mb-1">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               repeat: Infinity,
               ease: "linear",
-              duration: 28,
+              duration: 30,
             }}
-            className="flex items-center whitespace-nowrap space-x-8 sm:space-x-12 w-max"
+            className="flex items-center whitespace-nowrap space-x-8 sm:space-x-12 w-max py-2"
           >
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
               <span
                 key={index}
-                className={`font-heading font-extralight text-[8vw] sm:text-[10vw] leading-none uppercase tracking-tight ${
-                  item === "•" ? "text-[#C79B63]" : "text-white/90 drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+                className={`font-heading font-extralight text-[5.5vw] sm:text-[6.5vw] md:text-[7vw] leading-normal uppercase tracking-tight ${
+                  item === "•" ? "text-[#C79B63]" : "text-white/90 drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
                 }`}
               >
                 {item}
@@ -99,13 +101,11 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
             ))}
           </motion.div>
         </div>
-      </div>
 
-      {/* Elementis-Style Bottom Info Bar */}
-      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 sm:px-12 lg:px-16 pb-8 pt-2">
-        {/* Thin Horizontal Line */}
-        <div className="border-t border-white/20 mb-5" />
+        {/* Snug Thin Horizontal Divider */}
+        <div className="border-t border-white/25 mb-4" />
 
+        {/* Bottom 3-Column Info Bar */}
         <div className="grid grid-cols-12 items-center text-xs text-neutral-300 font-light tracking-wider">
           {/* Left: Downward Arrow Button */}
           <div className="col-span-2 sm:col-span-2 flex items-center">
