@@ -20,20 +20,21 @@ export default function AppleStackSection({
 }: AppleStackSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Track scroll progress of this section as it enters and leaves viewport
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start end", "end start"],
   });
 
-  // Apple-style scaling down & subtle dimming when covered by next section
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "24px"]);
+  // Smooth fluid scaling down when covered by the next section
+  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0.6, 1], [1, 0.75]);
+  const borderRadius = useTransform(scrollYProgress, [0.5, 1], ["0px", "20px"]);
 
   const isLast = index === totalSections - 1;
 
   return (
-    <div ref={containerRef} className="relative h-[120vh]">
+    <div ref={containerRef} className="relative w-full">
       <motion.section
         id={id}
         style={{
@@ -42,7 +43,7 @@ export default function AppleStackSection({
           borderRadius: isLast ? "0px" : borderRadius,
           zIndex: (index + 1) * 5,
         }}
-        className={`sticky top-0 min-h-screen w-full ${bgClassName} shadow-[0_-10px_40px_rgba(0,0,0,0.3)] overflow-hidden transform-gpu will-change-transform border-t border-white/10`}
+        className={`sticky top-0 min-h-screen w-full ${bgClassName} shadow-[0_-15px_45px_rgba(0,0,0,0.35)] overflow-hidden transform-gpu will-change-transform border-t border-white/10 flex flex-col justify-center`}
       >
         {children}
       </motion.section>
