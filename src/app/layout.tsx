@@ -1,36 +1,36 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import LuxuryPreloader from "@/components/ui/LuxuryPreloader";
 import "./globals.css";
 
-const outfitFont = Outfit({
+const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-const interFont = Inter({
+const outfitFont = Outfit({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["200", "300", "400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "VISIONS MANAGEMENT | Premium Creative & Talent Agency",
-  description: "We connect brands with exceptional creators through strategy, storytelling, and high-performing digital campaigns.",
+  title: "VISIONS MANAGEMENT | Premier Partnership Agency",
+  description: "Connecting your business with global brand networks, strategic markets, and top-tier talent.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: Readonly<React.ReactNode>;
 }>) {
   return (
     <html
       lang="en"
-      className={`${outfitFont.variable} ${interFont.variable} scroll-smooth antialiased`}
+      className={`${plusJakartaSans.variable} ${outfitFont.variable} scroll-smooth antialiased`}
     >
-      <body className="bg-[#F8F7F4] text-[#171717] font-body selection:bg-[#C79B63] selection:text-white">
+      <body className="bg-[#F8F7F4] text-[#171717] selection:bg-[#C79B63] selection:text-white font-sans">
         <LuxuryPreloader />
         {children}
       </body>
