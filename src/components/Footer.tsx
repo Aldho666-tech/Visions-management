@@ -15,16 +15,16 @@ export default function Footer({ onOpenProjectModal, onOpenTalentModal }: Footer
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16">
-          {/* Column 1: VM SVG Icon + ELEMENTIS-Style Large Tracked Typography */}
+          {/* Column 1: VM SVG Icon + ELEMENTIS-Style Clean Tracked Typography */}
           <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
             <div>
-              <Link href="/" className="flex items-center space-x-4 group">
+              <Link href="/" className="flex items-center space-x-3.5 group">
                 <img
                   src="/logo-vm.svg"
                   alt="VM Icon"
-                  className="h-10 sm:h-12 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_15px_rgba(199,155,99,0.3)]"
+                  className="h-8 sm:h-10 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_15px_rgba(199,155,99,0.3)] shrink-0"
                 />
-                <span className="font-heading font-light tracking-[0.45em] sm:tracking-[0.55em] text-xl sm:text-2xl uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
+                <span className="font-heading font-light tracking-[0.25em] sm:tracking-[0.45em] text-sm sm:text-base lg:text-lg uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
                   VISIONS MANAGEMENT
                 </span>
               </Link>
