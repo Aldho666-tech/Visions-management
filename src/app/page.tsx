@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
-import ParallaxSection from "@/components/ui/ParallaxSection";
+import AppleStackSection from "@/components/ui/AppleStackSection";
+import LuxuryPreloader from "@/components/ui/LuxuryPreloader";
 import Navbar from "@/components/Navbar";
 
 import HeroSection from "@/components/sections/HeroSection";
@@ -32,9 +33,26 @@ export default function Home() {
     }
   };
 
+  const sections = [
+    { id: "vision", bgClassName: "bg-[#171717]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} /> },
+    { id: "about", bgClassName: "bg-[#F8F7F4]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
+    { id: "services", bgClassName: "bg-[#1D2622]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
+    { id: "process", bgClassName: "bg-[#171717]", component: <ProcessSection /> },
+    { id: "why-us", bgClassName: "bg-[#F8F7F4]", component: <WhyUsSection /> },
+    { id: "stats", bgClassName: "bg-[#F8F7F4]", component: <StatsSection /> },
+    { id: "creators", bgClassName: "bg-[#F8F7F4]", component: <CreatorsSection onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "campaigns", bgClassName: "bg-[#171717]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
+    { id: "testimonials", bgClassName: "bg-[#F8F7F4]", component: <TestimonialsSection /> },
+    { id: "cta", bgClassName: "bg-[#171717]", component: <CtaSection onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "contact", bgClassName: "bg-[#1D2622]", component: <Footer onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+  ];
+
   return (
     <SmoothScroll>
       <main className="min-h-screen bg-[#171717] text-[#171717] selection:bg-[#C79B63] selection:text-white relative">
+        {/* Luxury Preloader on Page Load & Refresh */}
+        <LuxuryPreloader />
+
         {/* Custom Mouse Cursor */}
         <CustomCursor />
 
@@ -44,71 +62,19 @@ export default function Home() {
           onOpenTalentModal={() => setTalentModalOpen(true)}
         />
 
-        {/* PARALLAX SCROLL SECTIONS */}
-        <div className="relative w-full overflow-hidden">
-          {/* Section 01: HERO */}
-          <ParallaxSection id="vision" bgClassName="bg-[#171717]" speed={0}>
-            <HeroSection
-              onExploreWork={() => scrollToSection("about")}
-              onStartProject={() => setProjectModalOpen(true)}
-            />
-          </ParallaxSection>
-
-          {/* Section 02: INTRO */}
-          <ParallaxSection id="about" bgClassName="bg-[#F8F7F4]" speed={-30}>
-            <IntroSection onNavigateServices={() => scrollToSection("services")} />
-          </ParallaxSection>
-
-          {/* Section 03: SERVICES */}
-          <ParallaxSection id="services" bgClassName="bg-[#1D2622]" speed={30}>
-            <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} />
-          </ParallaxSection>
-
-          {/* Section 04: PROCESS */}
-          <ParallaxSection id="process" bgClassName="bg-[#171717]" speed={-25}>
-            <ProcessSection />
-          </ParallaxSection>
-
-          {/* Section 05: WHY US */}
-          <ParallaxSection id="why-us" bgClassName="bg-[#F8F7F4]" speed={25}>
-            <WhyUsSection />
-          </ParallaxSection>
-
-          {/* Section 06: STATS */}
-          <ParallaxSection id="stats" bgClassName="bg-[#F8F7F4]" speed={-30}>
-            <StatsSection />
-          </ParallaxSection>
-
-          {/* Section 07: CREATORS */}
-          <ParallaxSection id="creators" bgClassName="bg-[#F8F7F4]" speed={30}>
-            <CreatorsSection onOpenTalentModal={() => setTalentModalOpen(true)} />
-          </ParallaxSection>
-
-          {/* Section 08: CAMPAIGNS */}
-          <ParallaxSection id="campaigns" bgClassName="bg-[#171717]" speed={-25}>
-            <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} />
-          </ParallaxSection>
-
-          {/* Section 09: TESTIMONIALS */}
-          <ParallaxSection id="testimonials" bgClassName="bg-[#F8F7F4]" speed={25}>
-            <TestimonialsSection />
-          </ParallaxSection>
-
-          {/* Section 10: CTA */}
-          <ParallaxSection id="cta" bgClassName="bg-[#171717]" speed={-20}>
-            <CtaSection
-              onOpenProjectModal={() => setProjectModalOpen(true)}
-              onOpenTalentModal={() => setTalentModalOpen(true)}
-            />
-          </ParallaxSection>
-
-          {/* Section 11: FOOTER */}
-          <ParallaxSection id="contact" bgClassName="bg-[#1D2622]" speed={0}>
-            <Footer
-              onOpenProjectModal={() => setProjectModalOpen(true)}
-              onOpenTalentModal={() => setTalentModalOpen(true)}
-            />
-          </ParallaxSection>
+        {/* APPLE-STYLE STACKING SCROLL SECTIONS */}
+        <div className="relative w-full">
+          {sections.map((sec, idx) => (
+            <AppleStackSection
+              key={sec.id}
+              id={sec.id}
+              index={idx}
+              totalSections={sections.length}
+              bgClassName={sec.bgClassName}
+            >
+              {sec.component}
+            </AppleStackSection>
+          ))}
         </div>
 
         {/* Interactive Modals */}
