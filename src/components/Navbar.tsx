@@ -42,19 +42,19 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled || pathname !== "/"
           ? "bg-[#171717]/95 backdrop-blur-md py-3.5 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
-          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-6 sm:py-7 text-[#F8F7F4]"
+          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-5 sm:py-6 text-[#F8F7F4]"
       }`}
     >
       {/* Container with Generous Breathing Room and Balanced Spacing */}
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 flex items-center justify-between">
-        {/* Brand Logo - ELEMENTIS-Style Large Tracked Typography */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
+        {/* Brand Logo - ELEMENTIS-Style Clean Tracked Typography */}
         <Link href="/" className="flex items-center space-x-3.5 group pr-4 shrink-0">
           <img
             src="/logo-vm.svg"
             alt="VM Icon"
-            className="h-8 sm:h-10 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.3)]"
+            className="h-7 sm:h-9 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.3)]"
           />
-          <span className="font-heading font-light tracking-[0.4em] sm:tracking-[0.5em] lg:tracking-[0.55em] text-sm sm:text-lg lg:text-xl uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
+          <span className="font-heading font-light tracking-[0.3em] sm:tracking-[0.4em] lg:tracking-[0.45em] text-xs sm:text-base lg:text-lg uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
             VISIONS MANAGEMENT
           </span>
         </Link>
@@ -83,13 +83,13 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
         <div className="hidden sm:flex items-center space-x-3 lg:space-x-4 shrink-0">
           <button
             onClick={onOpenProjectModal}
-            className="px-4 lg:px-6 py-2.5 text-[11px] lg:text-xs tracking-[0.18em] lg:tracking-[0.2em] font-light uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap"
+            className="px-4 lg:px-5 py-2 text-[11px] lg:text-xs tracking-[0.18em] lg:tracking-[0.2em] font-light uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap"
           >
             START PROJECT
           </button>
           <button
             onClick={onOpenTalentModal}
-            className="px-4 lg:px-6 py-2.5 text-[11px] lg:text-xs tracking-[0.18em] lg:tracking-[0.2em] font-light uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap"
+            className="px-4 lg:px-5 py-2 text-[11px] lg:text-xs tracking-[0.18em] lg:tracking-[0.2em] font-light uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap"
           >
             JOIN AS TALENT
           </button>
@@ -121,7 +121,7 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-x-0 top-[72px] bg-[#171717]/95 backdrop-blur-xl border-b border-white/10 p-8 shadow-2xl flex flex-col space-y-6"
+            className="lg:hidden fixed inset-x-0 top-[65px] bg-[#171717]/95 backdrop-blur-xl border-b border-white/10 p-8 shadow-2xl flex flex-col space-y-6"
           >
             <div className="flex flex-col space-y-4 text-center">
               {navLinks.map((link) => (
