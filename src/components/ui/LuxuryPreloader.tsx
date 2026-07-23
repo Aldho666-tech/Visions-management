@@ -15,8 +15,6 @@ export default function LuxuryPreloader() {
     return () => clearTimeout(timer);
   }, []);
 
-  const logoLetters = "VISIONS".split("");
-
   return (
     <AnimatePresence mode="wait">
       {loading && (
@@ -30,54 +28,43 @@ export default function LuxuryPreloader() {
           className="fixed inset-0 z-50 bg-[#171717] text-[#F8F7F4] flex flex-col items-center justify-center select-none overflow-hidden font-heading font-light"
         >
           <div className="flex flex-col items-center text-center px-4 max-w-lg mx-auto">
-            {/* Staggered Animated Letters for Logo VISIONS */}
-            <div className="flex space-x-2 sm:space-x-4 font-heading font-light text-3xl sm:text-6xl uppercase text-white leading-none tracking-widest">
-              {logoLetters.map((letter, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 25, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.2 + i * 0.12,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="inline-block"
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </div>
-
-            {/* Subtitle Animated Entrance */}
-            <motion.span
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.3 }}
-              className="text-[10px] sm:text-xs font-light tracking-[0.45em] text-neutral-400 uppercase mt-4 block"
-            >
-              BY VISIONS MANAGEMENT
-            </motion.span>
+            {/* Prominent Animated Official VM SVG Logo Icon Only */}
+            <motion.img
+              src="/logo-vm.svg"
+              alt="VISIONS MANAGEMENT Logo"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{
+                opacity: [0.4, 1, 0.75, 1],
+                scale: [0.95, 1.06, 0.98, 1.03],
+              }}
+              transition={{
+                duration: 2.5,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              className="w-44 h-44 sm:w-64 sm:h-64 object-contain filter drop-shadow-[0_0_45px_rgba(199,155,99,0.45)]"
+            />
 
             {/* Gold Accent Pulse Line */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
               animate={{
-                width: "180px",
+                width: "200px",
                 opacity: [0.2, 1, 0.4, 1],
               }}
               transition={{
-                width: { duration: 1, delay: 1.6 },
-                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1.8 },
+                width: { duration: 1.2, delay: 0.4 },
+                opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
               }}
-              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-6"
+              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-8"
             />
 
             {/* Animated Tagline Text */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2.1 }}
+              transition={{ duration: 1, delay: 1 }}
               className="text-[10px] sm:text-[11px] font-mono tracking-[0.3em] text-[#C79B63] uppercase"
             >
               A STRATEGY-LED CREATOR MARKETING JOURNEY

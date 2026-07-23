@@ -41,20 +41,19 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled || pathname !== "/"
-          ? "bg-[#171717]/95 backdrop-blur-md py-4 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
-          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-6 text-[#F8F7F4]"
+          ? "bg-[#171717]/95 backdrop-blur-md py-3 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
+          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-4 text-[#F8F7F4]"
       }`}
     >
       {/* Container with Generous Horizontal Breathing Room */}
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 flex items-center justify-between">
-        {/* Brand Logo - HOTSTONE Minimalist Style */}
-        <Link href="/" className="flex flex-col group pr-4">
-          <span className="font-heading font-light tracking-[0.3em] text-base sm:text-lg uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none">
-            VISIONS
-          </span>
-          <span className="text-[9px] sm:text-[10px] font-light tracking-[0.35em] text-neutral-400 uppercase mt-1 leading-none">
-            BY VISIONS MANAGEMENT
-          </span>
+        {/* Brand Logo - Prominent Official VM SVG Icon */}
+        <Link href="/" className="flex items-center group pr-4">
+          <img
+            src="/logo-vm.svg"
+            alt="VISIONS MANAGEMENT Logo"
+            className="h-10 sm:h-14 w-auto object-contain filter group-hover:brightness-125 group-hover:scale-105 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.25)]"
+          />
         </Link>
 
         {/* Desktop Nav Links - Clean 4 Core Items */}

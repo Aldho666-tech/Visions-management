@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Camera, Phone, Mail, MapPin, Share2 } from "lucide-react";
+import { Camera, Share2 } from "lucide-react";
 
 interface FooterProps {
   onOpenProjectModal?: () => void;
@@ -13,22 +13,21 @@ export default function Footer({ onOpenProjectModal, onOpenTalentModal }: Footer
   return (
     <footer className="bg-[#1D2622] text-[#F8F7F4] pt-20 pb-10 border-t border-white/10 font-heading font-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top 4-Column Layout (Matching HOTSTONE Screenshot) */}
+        {/* Top 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16">
-          {/* Column 1: Logo & Social Icons */}
+          {/* Column 1: Prominent VM SVG Logo & Social Icons */}
           <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
             <div>
-              <Link href="/" className="flex flex-col group">
-                <span className="font-heading font-light tracking-[0.35em] text-xl uppercase text-white group-hover:text-[#C79B63] transition-colors">
-                  VISIONS
-                </span>
-                <span className="text-[9px] font-light tracking-[0.4em] text-neutral-400 uppercase mt-0.5">
-                  BY VISIONS MANAGEMENT
-                </span>
+              <Link href="/" className="inline-block group">
+                <img
+                  src="/logo-vm.svg"
+                  alt="VISIONS MANAGEMENT Logo"
+                  className="h-16 sm:h-20 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_15px_rgba(199,155,99,0.3)]"
+                />
               </Link>
             </div>
 
-            {/* Social Icons (Facebook, Instagram, WhatsApp / Share) */}
+            {/* Social Icons */}
             <div className="flex items-center space-x-6 text-neutral-400">
               <a
                 href="https://facebook.com"
@@ -60,7 +59,7 @@ export default function Footer({ onOpenProjectModal, onOpenTalentModal }: Footer
             </div>
           </div>
 
-          {/* Column 2: Navigation Links (Consolidated Core) */}
+          {/* Column 2: Navigation Links */}
           <div className="lg:col-span-2 space-y-3 text-xs tracking-[0.15em] font-light text-neutral-300">
             <div>
               <Link href="/" className="hover:text-white transition-colors block py-1">
