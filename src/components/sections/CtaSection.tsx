@@ -11,30 +11,13 @@ interface CtaSectionProps {
 
 export default function CtaSection({ onOpenProjectModal, onOpenTalentModal }: CtaSectionProps) {
   return (
-    <section className="relative py-28 sm:py-36 bg-[#171717] text-[#F8F7F4] overflow-hidden flex items-center justify-center">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-25 filter brightness-75 contrast-125 scale-105"
-        >
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-posing-in-a-studio-41559-large.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-[#171717]/80 to-[#171717]" />
-      </div>
-
+    <section className="relative py-20 sm:py-28 bg-[#F8F7F4] text-[#171717] overflow-hidden flex items-center justify-center font-heading font-light border-t border-neutral-300">
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#C79B63] text-xs font-semibold uppercase tracking-widest mb-6"
+          className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-none bg-[#171717] border border-[#C79B63]/40 text-[#C79B63] text-xs font-mono font-medium uppercase tracking-[0.25em] mb-6 shadow-md"
         >
           <Sparkles className="w-3.5 h-3.5" />
           <span>JOIN THE VISIONS ECOSYSTEM</span>
@@ -45,9 +28,9 @@ export default function CtaSection({ onOpenProjectModal, onOpenTalentModal }: Ct
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight font-heading"
+          className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight uppercase leading-tight font-heading text-[#171717]"
         >
-          Ready to Create Something <span className="text-[#C79B63]">Remarkable?</span>
+          Ready to Create Something <span className="font-serif italic font-normal text-[#C79B63]">Remarkable?</span>
         </motion.h2>
 
         <motion.p
@@ -55,9 +38,9 @@ export default function CtaSection({ onOpenProjectModal, onOpenTalentModal }: Ct
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 text-base sm:text-lg text-neutral-300 font-light leading-relaxed max-w-2xl mx-auto text-balance"
+          className="mt-6 text-base sm:text-lg text-neutral-600 font-light leading-relaxed max-w-2xl mx-auto text-balance"
         >
-          Whether you&apos;re a growing brand or an ambitious creator, let&apos;s build meaningful collaborations together.
+          Whether you&apos;re a growing brand or an ambitious creator, let&apos;s build meaningful strategic partnerships together.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -70,18 +53,18 @@ export default function CtaSection({ onOpenProjectModal, onOpenTalentModal }: Ct
         >
           <button
             onClick={onOpenProjectModal}
-            className="w-full sm:w-auto px-9 py-4 bg-[#C79B63] hover:bg-[#d8ab73] text-[#171717] font-bold text-xs uppercase tracking-widest rounded-full shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center space-x-2 group"
+            className="w-full sm:w-auto px-8 py-3.5 bg-[#171717] hover:bg-[#C79B63] text-white hover:text-[#171717] font-light text-xs uppercase tracking-[0.2em] border border-[#171717] hover:border-[#C79B63] transition-all shadow-xl flex items-center justify-center space-x-2 group"
           >
             <span>START YOUR PROJECT</span>
-            <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
 
           <button
             onClick={onOpenTalentModal}
-            className="w-full sm:w-auto px-9 py-4 bg-white/10 hover:bg-white/20 text-[#F8F7F4] font-semibold text-xs uppercase tracking-widest rounded-full backdrop-blur-md border border-white/20 hover:border-[#C79B63]/60 transition-all flex items-center justify-center space-x-2"
+            className="w-full sm:w-auto px-8 py-3.5 bg-transparent hover:bg-[#171717] text-[#171717] hover:text-white font-light text-xs uppercase tracking-[0.2em] border border-[#171717] transition-all flex items-center justify-center space-x-2"
           >
             <UserPlus className="w-4 h-4 text-[#C79B63]" />
-            <span>Become a Creator</span>
+            <span>BECOME A CREATOR</span>
           </button>
         </motion.div>
       </div>

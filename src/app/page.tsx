@@ -33,7 +33,7 @@ export default function Home() {
     }
   };
 
-  // Complete Luxury Homepage Section Sequence (Black, Grey, White, and Gold Palette)
+  // Complete Luxury Homepage Section Sequence (Distinct Contrast Between CTA and Footer)
   const sections = [
     { id: "vision", bgClassName: "bg-[#171717]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} />, noPadding: true },
     { id: "about", bgClassName: "bg-[#F8F7F4]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
@@ -44,7 +44,7 @@ export default function Home() {
     { id: "stats", bgClassName: "bg-[#F8F7F4]", component: <StatsSection /> },
     { id: "campaigns", bgClassName: "bg-[#171717]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
     { id: "testimonials", bgClassName: "bg-[#F8F7F4]", component: <TestimonialsSection /> },
-    { id: "cta", bgClassName: "bg-[#171717]", component: <CtaSection onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "cta", bgClassName: "bg-[#F8F7F4]", component: <CtaSection onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
     { id: "contact", bgClassName: "bg-[#171717]", component: <Footer onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} />, noPadding: true },
   ];
 

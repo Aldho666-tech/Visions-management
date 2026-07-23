@@ -50,19 +50,61 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
       {/* Top Spacer for Floating Navbar */}
       <div className="h-24 sm:h-32" />
 
-      {/* Center Ultra-Clean Headline & Action Button (Mobile Optimized) */}
+      {/* Center Animated Headline & Action Button */}
       <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="flex flex-col items-center space-y-4 sm:space-y-6"
-        >
-          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.1] sm:leading-[1.05] font-heading text-white text-balance drop-shadow-xl">
-            Connecting Your <span className="font-serif italic font-normal text-[#C79B63]">Business</span>
+        <div className="flex flex-col items-center space-y-4 sm:space-y-6">
+          {/* Animated Headline Words with Silk Reveal & Gold Glow */}
+          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.1] sm:leading-[1.05] font-heading text-white text-balance drop-shadow-2xl overflow-hidden py-1">
+            <motion.span
+              initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="inline-block mr-2.5 sm:mr-4"
+            >
+              Connecting
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, delay: 0.38 }}
+              className="inline-block mr-2.5 sm:mr-4"
+            >
+              Your
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                textShadow: [
+                  "0 0 20px rgba(199,155,99,0.3)",
+                  "0 0 35px rgba(199,155,99,0.6)",
+                  "0 0 20px rgba(199,155,99,0.3)",
+                ],
+              }}
+              transition={{
+                duration: 0.9,
+                delay: 0.56,
+                textShadow: {
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
+              className="inline-block font-serif italic font-normal text-[#C79B63] drop-shadow-[0_0_25px_rgba(199,155,99,0.4)]"
+            >
+              Business
+            </motion.span>
           </h1>
 
-          <div className="pt-2">
+          {/* Action Button Entrance */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="pt-2"
+          >
             <button
               onClick={onExploreWork}
               className="inline-flex items-center space-x-2 text-[11px] xs:text-xs sm:text-sm font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white border-b border-[#C79B63] hover:border-white pb-1 sm:pb-1.5 transition-all group hover:text-[#C79B63]"
@@ -70,13 +112,13 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
               <span>DISCOVER PARTNERSHIPS</span>
               <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C79B63] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Bottom Area: Pure Floating Marquee & Zero-Gap Bottom Info Bar */}
       <div className="relative z-10 w-full pb-0 pt-0">
-        {/* Pure Floating Running Text (No Border Lines & No Box Background) */}
+        {/* Pure Floating Running Text */}
         <div className="w-full overflow-hidden select-none py-1 mb-1 bg-transparent">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -100,7 +142,7 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
           </motion.div>
         </div>
 
-        {/* Bottom 3-Column Info Bar (Zero Bottom Padding - Completely Flush) */}
+        {/* Bottom 3-Column Info Bar */}
         <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-14 pb-2">
           <div className="border-t border-white/20 mb-2" />
 
