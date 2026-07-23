@@ -29,13 +29,13 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Core Navbar Links including Partners and News sections
+  // Dedicated Core Navbar Links
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Partners", href: "/#partners" },
-    { name: "News", href: "/#news" },
+    { name: "Partners", href: "/partners" },
+    { name: "News", href: "/news" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -61,7 +61,7 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
           </span>
         </Link>
 
-        {/* Desktop Nav Links - Clean Luxury Core Navigation */}
+        {/* Desktop Nav Links - Clean Luxury Dedicated Pages Navigation */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-10 text-xs xl:text-[13px] tracking-[0.2em] font-light text-neutral-200 mx-4">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
