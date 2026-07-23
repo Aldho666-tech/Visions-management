@@ -29,11 +29,13 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Consolidated & Minimal Core Navbar Links
+  // Core Navbar Links including Partners and News sections
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
+    { name: "Partners", href: "/#partners" },
+    { name: "News", href: "/#news" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -59,8 +61,8 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
           </span>
         </Link>
 
-        {/* Desktop Nav Links - Clean 4 Core Items with Generous Spacing */}
-        <nav className="hidden lg:flex items-center space-x-8 xl:space-x-12 text-xs xl:text-[13px] tracking-[0.2em] font-light text-neutral-200 mx-6">
+        {/* Desktop Nav Links - Clean Luxury Core Navigation */}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-10 text-xs xl:text-[13px] tracking-[0.2em] font-light text-neutral-200 mx-4">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
