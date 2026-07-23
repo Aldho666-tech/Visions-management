@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
+import LuxuryPreloader from "@/components/ui/LuxuryPreloader";
 import "./globals.css";
 
 const outfitFont = Outfit({
@@ -30,6 +31,7 @@ export default function RootLayout({
       className={`${outfitFont.variable} ${interFont.variable} scroll-smooth antialiased`}
     >
       <body className="bg-[#F8F7F4] text-[#171717] font-body selection:bg-[#C79B63] selection:text-white">
+        <LuxuryPreloader />
         {children}
       </body>
     </html>
