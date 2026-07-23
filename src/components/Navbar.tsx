@@ -47,12 +47,12 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
     >
       {/* Container with Generous Horizontal Breathing Room */}
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 flex items-center justify-between">
-        {/* Brand Logo - Prominent Official VM SVG Icon */}
+        {/* Brand Logo - Extra Large Official VM SVG Emblem */}
         <Link href="/" className="flex items-center group pr-4">
           <img
             src="/logo-vm.svg"
             alt="VISIONS MANAGEMENT Logo"
-            className="h-10 sm:h-14 w-auto object-contain filter group-hover:brightness-125 group-hover:scale-105 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.25)]"
+            className="h-12 sm:h-16 md:h-20 w-auto object-contain filter group-hover:brightness-125 group-hover:scale-105 transition-all drop-shadow-[0_0_16px_rgba(199,155,99,0.35)]"
           />
         </Link>
 

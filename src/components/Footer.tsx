@@ -22,7 +22,7 @@ export default function Footer({ onOpenProjectModal, onOpenTalentModal }: Footer
                 <img
                   src="/logo-vm.svg"
                   alt="VISIONS MANAGEMENT Logo"
-                  className="h-16 sm:h-20 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_15px_rgba(199,155,99,0.3)]"
+                  className="h-24 sm:h-32 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_25px_rgba(199,155,99,0.4)]"
                 />
               </Link>
             </div>
