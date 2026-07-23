@@ -10,7 +10,7 @@ export default function LuxuryPreloader() {
     // Runs preloader on every initial open & page refresh
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4500);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -25,40 +25,48 @@ export default function LuxuryPreloader() {
             opacity: 0,
             transition: { duration: 0.8, ease: "easeInOut" },
           }}
-          className="fixed inset-0 z-50 bg-[#171717] text-[#F8F7F4] flex flex-col items-center justify-center select-none overflow-hidden font-heading font-light pt-8 sm:pt-16"
+          className="fixed inset-0 z-50 bg-[#171717] text-[#F8F7F4] flex flex-col items-center justify-center select-none overflow-hidden font-heading font-light"
         >
-          {/* Centered Large Container Shifted Downwards */}
-          <div className="flex flex-col items-center text-center px-4 max-w-2xl mx-auto transform translate-y-6 sm:translate-y-12">
-            {/* Huge Prominent VM SVG Monogram Logo */}
-            <motion.img
-              src="/logo-vm.svg"
-              alt="VISIONS MANAGEMENT Logo"
-              initial={{ opacity: 0, scale: 0.88 }}
-              animate={{
-                opacity: [0.4, 1, 0.75, 1],
-                scale: [0.95, 1.06, 0.98, 1.03],
-              }}
-              transition={{
-                duration: 2.2,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              className="w-72 h-56 sm:w-[460px] sm:h-80 object-contain filter drop-shadow-[0_0_55px_rgba(199,155,99,0.5)] -mb-8"
-            />
+          {/* Perfectly Centered Container */}
+          <div className="flex flex-col items-center text-center px-4 max-w-lg mx-auto">
+            {/* Logo Container with Shimmer Light Sweep (No Scale Pulsing) */}
+            <div className="relative overflow-hidden p-2 rounded-2xl">
+              {/* Official VM SVG Logo */}
+              <motion.img
+                src="/logo-vm.svg"
+                alt="VISIONS MANAGEMENT Logo"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="w-56 h-36 sm:w-72 sm:h-44 object-contain filter drop-shadow-[0_0_40px_rgba(199,155,99,0.5)] relative z-10"
+              />
 
-            {/* Tight Gold Accent Line */}
+              {/* Shimmer Light Sweep Ray Overlay */}
+              <motion.div
+                initial={{ x: "-180%" }}
+                animate={{ x: "280%" }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  repeatDelay: 0.6,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-y-0 z-20 w-28 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay"
+              />
+            </div>
+
+            {/* Gold Accent Pulse Line */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
               animate={{
-                width: "220px",
-                opacity: [0.2, 1, 0.4, 1],
+                width: "180px",
+                opacity: [0.3, 1, 0.5, 1],
               }}
               transition={{
                 width: { duration: 1, delay: 0.3 },
                 opacity: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
               }}
-              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-4"
+              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent mt-3 mb-4"
             />
 
             {/* Tagline Text */}
