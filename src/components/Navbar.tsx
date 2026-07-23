@@ -43,36 +43,36 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled || pathname !== "/"
-          ? "bg-[#171717]/95 backdrop-blur-md py-3.5 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
-          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-5 sm:py-6 text-[#F8F7F4]"
+          ? "bg-[#171717]/95 backdrop-blur-md py-4 sm:py-5 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
+          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-6 sm:py-8 lg:py-9 text-[#F8F7F4]"
       }`}
     >
-      {/* Container with Generous Breathing Room and Balanced Spacing */}
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        {/* Brand Logo - ELEMENTIS-Style Clean Tracked Typography */}
-        <Link href="/" className="flex items-center space-x-3.5 group pr-4 shrink-0">
+      {/* Container with Generous Breathing Room and Prominent Scaling */}
+      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-14 flex items-center justify-between">
+        {/* Brand Logo - Enlarged ELEMENTIS-Style Typography & Icon */}
+        <Link href="/" className="flex items-center space-x-4 group pr-4 shrink-0">
           <img
             src="/logo-vm.svg"
             alt="VM Icon"
-            className="h-7 sm:h-9 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.3)]"
+            className="h-9 sm:h-11 md:h-12 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_16px_rgba(199,155,99,0.35)]"
           />
-          <span className="font-heading font-light tracking-[0.3em] sm:tracking-[0.4em] lg:tracking-[0.45em] text-xs sm:text-base lg:text-lg uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
+          <span className="font-heading font-light tracking-[0.3em] sm:tracking-[0.4em] lg:tracking-[0.45em] text-sm sm:text-lg lg:text-xl uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none whitespace-nowrap">
             VISIONS MANAGEMENT
           </span>
         </Link>
 
-        {/* Desktop Nav Links - Clean Luxury Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-10 text-xs xl:text-[13px] tracking-[0.2em] font-light text-neutral-200 mx-4">
+        {/* Desktop Nav Links - Prominent Luxury Navigation */}
+        <nav className="hidden lg:flex items-center space-x-8 xl:space-x-12 text-sm xl:text-base tracking-[0.2em] font-light text-neutral-100 mx-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`transition-colors relative py-1 ${
+                className={`transition-colors relative py-1.5 ${
                   isActive
-                    ? "text-[#C79B63] border-b border-[#C79B63]"
-                    : "hover:text-white hover:border-b hover:border-white/60"
+                    ? "text-[#C79B63] border-b-2 border-[#C79B63]"
+                    : "hover:text-white hover:border-b-2 hover:border-white/60"
                 }`}
               >
                 {link.name}
@@ -81,33 +81,24 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
           })}
         </nav>
 
-        {/* Right Action Area - ELEMENTIS-Style Outline Button + Menu Toggle */}
-        <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
-          {/* Start Project Button */}
+        {/* Right Action Area - Enlarged Outline Button (Collabs With Us ↗) + Hamburger Toggle */}
+        <div className="flex items-center space-x-4 sm:space-x-5 shrink-0">
+          {/* Single Clean Prominent Action Button */}
           <button
             onClick={onOpenProjectModal}
-            className="hidden sm:inline-flex items-center space-x-1.5 px-4 sm:px-5 py-2 text-xs font-light text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wide"
+            className="inline-flex items-center space-x-2 px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-light text-white border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wider shadow-lg"
           >
-            <span>Start Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-white" />
+            <span>Collabs With Us</span>
+            <ArrowUpRight className="w-4 h-4 text-white" />
           </button>
 
-          {/* Join Us / Talent Button (Exact ELEMENTIS Reference Screenshot Style) */}
-          <button
-            onClick={onOpenTalentModal}
-            className="inline-flex items-center space-x-1.5 px-4 sm:px-5 py-2 text-xs font-light text-white border border-white/40 hover:border-white hover:bg-white/10 transition-all rounded-none whitespace-nowrap tracking-wide"
-          >
-            <span>Join Us</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-white" />
-          </button>
-
-          {/* Thin 3-Line Hamburger Menu Icon (Exact ELEMENTIS Reference Screenshot Style) */}
+          {/* Thin 3-Line Hamburger Menu Icon (Mobile & Tablet) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-[#F8F7F4] hover:text-[#C79B63] focus:outline-none transition-colors"
+            className="lg:hidden p-2 text-[#F8F7F4] hover:text-[#C79B63] focus:outline-none transition-colors"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-7 h-7 sm:w-8 sm:h-8" /> : <Menu className="w-7 h-7 sm:w-8 sm:h-8" />}
           </button>
         </div>
       </div>
@@ -120,41 +111,30 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-x-0 top-[65px] bg-[#171717]/95 backdrop-blur-xl border-b border-white/10 p-8 shadow-2xl flex flex-col space-y-6"
+            className="lg:hidden fixed inset-x-0 top-[75px] sm:top-[85px] bg-[#171717]/98 backdrop-blur-2xl border-b border-white/10 p-8 shadow-2xl flex flex-col space-y-6"
           >
-            <div className="flex flex-col space-y-4 text-center">
+            <div className="flex flex-col space-y-5 text-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-light text-[#F8F7F4] hover:text-[#C79B63] tracking-[0.25em] uppercase transition-colors"
+                  className="text-lg sm:text-xl font-light text-[#F8F7F4] hover:text-[#C79B63] tracking-[0.25em] uppercase transition-colors"
                 >
                   {link.name}
                 </Link>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-white/10 flex flex-col space-y-3">
+            <div className="pt-6 border-t border-white/10 flex flex-col space-y-4">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   if (onOpenProjectModal) onOpenProjectModal();
                 }}
-                className="w-full py-3 border border-white/40 text-white font-light text-xs tracking-[0.2em] uppercase flex items-center justify-center space-x-2"
+                className="w-full py-4 border-2 border-white/50 text-white font-light text-sm tracking-[0.2em] uppercase flex items-center justify-center space-x-2"
               >
-                <span>Start Project</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (onOpenTalentModal) onOpenTalentModal();
-                }}
-                className="w-full py-3 border border-white/40 text-white font-light text-xs tracking-[0.2em] uppercase flex items-center justify-center space-x-2"
-              >
-                <span>Join Us</span>
+                <span>Collabs With Us</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>

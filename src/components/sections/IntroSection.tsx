@@ -65,7 +65,7 @@ export default function IntroSection({ onNavigateServices }: IntroSectionProps) 
           </motion.div>
         </div>
 
-        {/* Visual Banner - Black, Grey, White, Gold Concept */}
+        {/* Visual Banner - Relevant High-End Partnership Photo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,8 +74,8 @@ export default function IntroSection({ onNavigateServices }: IntroSectionProps) 
           className="relative w-full h-[360px] sm:h-[500px] overflow-hidden group shadow-2xl border border-neutral-300"
         >
           <img
-            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=2000"
-            alt="Visions Management Strategic Partnership"
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=2000"
+            alt="Visions Management Strategic Partnership Meeting"
             className="w-full h-full object-cover filter brightness-90 contrast-105 group-hover:scale-105 transition-transform duration-1000"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-[#171717]/30 to-transparent" />
