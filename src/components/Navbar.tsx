@@ -41,19 +41,27 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled || pathname !== "/"
-          ? "bg-[#171717]/95 backdrop-blur-md py-3 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
-          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-4 text-[#F8F7F4]"
+          ? "bg-[#171717]/95 backdrop-blur-md py-3.5 shadow-2xl border-b border-white/10 text-[#F8F7F4]"
+          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-4 sm:py-5 text-[#F8F7F4]"
       }`}
     >
       {/* Container with Generous Horizontal Breathing Room */}
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 flex items-center justify-between">
-        {/* Brand Logo - Balanced VM SVG Emblem */}
-        <Link href="/" className="flex items-center group pr-4">
+        {/* Brand Logo - VM SVG Monogram + HOTSTONE-Style Tracked Typography */}
+        <Link href="/" className="flex items-center space-x-3.5 group pr-4">
           <img
             src="/logo-vm.svg"
-            alt="VISIONS MANAGEMENT Logo"
-            className="h-9 sm:h-12 w-auto object-contain filter group-hover:brightness-125 group-hover:scale-105 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.25)]"
+            alt="VM Icon"
+            className="h-8 sm:h-10 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_12px_rgba(199,155,99,0.3)]"
           />
+          <div className="flex flex-col">
+            <span className="font-heading font-light tracking-[0.42em] text-base sm:text-lg uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none ml-0.5">
+              VISIONS
+            </span>
+            <span className="text-[8px] sm:text-[9.5px] font-light tracking-[0.38em] text-neutral-400 uppercase mt-1 leading-none">
+              BY VISIONS MANAGEMENT
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav Links - Clean 4 Core Items */}

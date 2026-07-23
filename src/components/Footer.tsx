@@ -15,15 +15,23 @@ export default function Footer({ onOpenProjectModal, onOpenTalentModal }: Footer
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16">
-          {/* Column 1: Prominent VM SVG Logo & Social Icons */}
+          {/* Column 1: VM SVG Icon + HOTSTONE-Style Tracked Typography */}
           <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
             <div>
-              <Link href="/" className="inline-block group">
+              <Link href="/" className="flex items-center space-x-4 group">
                 <img
                   src="/logo-vm.svg"
-                  alt="VISIONS MANAGEMENT Logo"
-                  className="h-24 sm:h-32 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_25px_rgba(199,155,99,0.4)]"
+                  alt="VM Icon"
+                  className="h-10 sm:h-12 w-auto object-contain filter group-hover:brightness-125 transition-all drop-shadow-[0_0_15px_rgba(199,155,99,0.3)]"
                 />
+                <div className="flex flex-col">
+                  <span className="font-heading font-light tracking-[0.45em] text-xl uppercase text-white group-hover:text-[#C79B63] transition-colors leading-none ml-0.5">
+                    VISIONS
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] font-light tracking-[0.4em] text-neutral-400 uppercase mt-1.5 leading-none">
+                    BY VISIONS MANAGEMENT
+                  </span>
+                </div>
               </Link>
             </div>
 

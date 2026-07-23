@@ -29,16 +29,15 @@ export default function LuxuryPreloader() {
         >
           {/* Perfectly Centered Container */}
           <div className="flex flex-col items-center text-center px-4 max-w-lg mx-auto">
-            {/* Logo Container with Shimmer Light Sweep (No Scale Pulsing) */}
-            <div className="relative overflow-hidden p-2 rounded-2xl">
-              {/* Official VM SVG Logo */}
+            {/* VM SVG Icon + Sweep Light */}
+            <div className="relative overflow-hidden p-2 rounded-2xl mb-2">
               <motion.img
                 src="/logo-vm.svg"
-                alt="VISIONS MANAGEMENT Logo"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                alt="VM Logo Icon"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="w-56 h-36 sm:w-72 sm:h-44 object-contain filter drop-shadow-[0_0_40px_rgba(199,155,99,0.5)] relative z-10"
+                className="w-24 h-16 sm:w-36 sm:h-24 object-contain filter drop-shadow-[0_0_35px_rgba(199,155,99,0.45)] relative z-10"
               />
 
               {/* Shimmer Light Sweep Ray Overlay */}
@@ -55,6 +54,25 @@ export default function LuxuryPreloader() {
               />
             </div>
 
+            {/* HOTSTONE-Style Tracked Luxury Typography */}
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-heading font-light tracking-[0.55em] sm:tracking-[0.65em] text-2xl sm:text-4xl uppercase text-white leading-none ml-2"
+            >
+              VISIONS
+            </motion.h1>
+
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-[9px] sm:text-[11px] font-light tracking-[0.45em] text-neutral-400 uppercase mt-2.5 block"
+            >
+              BY VISIONS MANAGEMENT
+            </motion.span>
+
             {/* Gold Accent Pulse Line */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
@@ -63,17 +81,17 @@ export default function LuxuryPreloader() {
                 opacity: [0.3, 1, 0.5, 1],
               }}
               transition={{
-                width: { duration: 1, delay: 0.3 },
-                opacity: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
+                width: { duration: 1, delay: 0.6 },
+                opacity: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
               }}
-              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent mt-3 mb-4"
+              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-4"
             />
 
             {/* Tagline Text */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 1 }}
               className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#C79B63] uppercase leading-tight"
             >
               A STRATEGY-LED CREATOR MARKETING JOURNEY
