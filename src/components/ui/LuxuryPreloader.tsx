@@ -7,10 +7,10 @@ export default function LuxuryPreloader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Runs preloader on every initial open & page refresh
+    // Elegant quick preloader fade out
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2200);
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,67 +27,27 @@ export default function LuxuryPreloader() {
           }}
           className="fixed inset-0 z-50 bg-[#171717] text-[#F8F7F4] flex flex-col items-center justify-center select-none overflow-hidden font-heading font-light px-4"
         >
-          {/* Perfectly Centered Responsive Container */}
-          <div className="flex flex-col items-center text-center w-full max-w-xl mx-auto">
-            {/* VM SVG Icon + Sweep Light */}
-            <div className="relative overflow-hidden p-2 rounded-2xl mb-4 sm:mb-6">
-              <motion.img
-                src="/logo-vm.svg"
-                alt="VM Logo Icon"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="w-20 h-16 sm:w-32 sm:h-24 md:w-36 md:h-28 object-contain filter drop-shadow-[0_0_35px_rgba(199,155,99,0.45)] relative z-10"
-              />
+          {/* Centered Logo & Title */}
+          <div className="flex flex-col items-center text-center space-y-6">
+            {/* Logo VM */}
+            <motion.img
+              src="/logo-vm.svg"
+              alt="VM Logo Icon"
+              initial={{ opacity: 0, scale: 0.92, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="w-20 h-16 sm:w-28 sm:h-20 object-contain"
+            />
 
-              {/* Shimmer Light Sweep Ray Overlay */}
-              <motion.div
-                initial={{ x: "-180%" }}
-                animate={{ x: "280%" }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                  repeatDelay: 0.6,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-y-0 z-20 w-24 sm:w-28 bg-gradient-to-r from-transparent via-[#C79B63]/60 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay"
-              />
-            </div>
-
-            {/* ELEMENTIS-Style Responsive Tracked Typography */}
+            {/* VISIONS MANAGEMENT Title */}
             <motion.h1
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-heading font-light tracking-[0.2em] xs:tracking-[0.3em] sm:tracking-[0.48em] md:tracking-[0.55em] text-[13px] xs:text-base sm:text-2xl md:text-3xl uppercase text-white leading-none whitespace-nowrap max-w-full"
+              transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="font-heading font-light tracking-[0.3em] sm:tracking-[0.45em] text-sm sm:text-2xl uppercase text-white leading-none whitespace-nowrap"
             >
               VISIONS MANAGEMENT
             </motion.h1>
-
-            {/* Gold Accent Pulse Line */}
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              animate={{
-                width: "100%",
-                maxWidth: "200px",
-                opacity: [0.3, 1, 0.5, 1],
-              }}
-              transition={{
-                width: { duration: 1, delay: 0.4 },
-                opacity: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
-              }}
-              className="h-[1px] bg-gradient-to-r from-transparent via-[#C79B63] to-transparent my-4 sm:my-5"
-            />
-
-            {/* Official Partnership Agency Moto */}
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-[10px] sm:text-xs font-mono tracking-[0.25em] sm:tracking-[0.35em] text-[#C79B63] uppercase leading-tight max-w-[320px] sm:max-w-none"
-            >
-              CONNECTING YOUR BUSINESS
-            </motion.p>
           </div>
         </motion.div>
       )}

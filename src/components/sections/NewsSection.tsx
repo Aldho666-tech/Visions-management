@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Newspaper, Calendar, ArrowUpRight, Sparkles, TrendingUp } from "lucide-react";
+import { Newspaper, ArrowUpRight } from "lucide-react";
 import NewsModal, { NewsArticle } from "@/components/Modals/NewsModal";
+import GsapSlideUpText from "@/components/ui/GsapSlideUpText";
+import GsapSplitText from "@/components/ui/GsapSplitText";
 
 export default function NewsSection() {
   const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null);
@@ -54,86 +55,88 @@ export default function NewsSection() {
   ];
 
   return (
-    <section id="news" className="py-12 sm:py-16 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
+    <section id="news" className="py-16 sm:py-24 bg-[#F8F7F4] text-[#171717] relative overflow-hidden font-heading">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
-        {/* Header Section */}
+        {/* Header Section matching signature layout */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-neutral-300 gap-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 text-xs font-light tracking-[0.3em] text-[#C79B63] uppercase">
-              <Newspaper className="w-4 h-4" />
-              <span>INSIGHTS & ANNOUNCEMENTS</span>
-            </div>
+          <div className="space-y-3">
+            <GsapSlideUpText delay={0.1} yOffset={20}>
+              <div className="inline-flex items-center space-x-2 text-xs font-mono font-medium tracking-[0.3em] text-[#C79B63] uppercase">
+                <Newspaper className="w-4 h-4" />
+                <span>INSIGHTS &amp; ANNOUNCEMENTS</span>
+              </div>
+            </GsapSlideUpText>
+
             <h2 className="text-3xl sm:text-5xl font-light uppercase tracking-tight text-[#171717] leading-none">
-              News & <span className="font-serif italic font-normal text-[#C79B63]">Press</span>
+              <GsapSplitText text="News &" type="words" delay={0.2} stagger={0.05} />
+              {" "}
+              <span className="font-serif italic font-normal text-[#C79B63]">
+                <GsapSplitText text="Press" type="words" delay={0.35} stagger={0.05} />
+              </span>
             </h2>
           </div>
 
-          <p className="text-neutral-600 text-xs sm:text-sm font-light max-w-md leading-relaxed">
-            Stay updated with our agency milestones, industry reports, luxury creator awards, and upcoming high-fashion summits.
-          </p>
+          <GsapSlideUpText delay={0.3} yOffset={25}>
+            <p className="text-neutral-600 text-xs sm:text-sm font-light max-w-md leading-relaxed">
+              Stay updated with our agency milestones, industry reports, luxury creator awards, and upcoming high-fashion summits.
+            </p>
+          </GsapSlideUpText>
         </div>
 
         {/* Featured Editorial Article Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {newsArticles.map((article, idx) => (
-            <motion.div
-              key={article.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="bg-white border border-neutral-200/80 hover:border-[#C79B63] transition-all group flex flex-col justify-between p-6 space-y-6 shadow-sm hover:shadow-xl"
-            >
-              <div className="space-y-4">
-                {/* Image Thumbnail */}
-                <div className="relative h-48 w-full overflow-hidden bg-neutral-100">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#171717] text-[#F8F7F4] text-[9px] tracking-[0.2em] font-mono uppercase px-2.5 py-1">
-                    {article.category}
+            <GsapSlideUpText key={article.title} delay={0.2 + idx * 0.15} yOffset={35}>
+              <div className="bg-white border border-neutral-200/80 hover:border-[#C79B63] transition-all group flex flex-col justify-between p-6 space-y-6 shadow-sm hover:shadow-xl h-full">
+                <div className="space-y-4">
+                  {/* Image Thumbnail */}
+                  <div className="relative h-48 w-full overflow-hidden bg-neutral-100">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#171717]/90 text-[#C79B63] text-[9px] font-mono tracking-widest uppercase px-2.5 py-1 border border-[#C79B63]/30">
+                      {article.category}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-3 text-[10px] font-mono text-neutral-400">
+                      <span>{article.date}</span>
+                      <span>•</span>
+                      <span>{article.author}</span>
+                    </div>
+
+                    <h3 className="text-lg font-medium text-[#171717] leading-snug group-hover:text-[#C79B63] transition-colors font-heading">
+                      {article.title}
+                    </h3>
+
+                    <p className="text-xs text-neutral-600 font-light leading-relaxed line-clamp-3">
+                      {article.excerpt}
+                    </p>
                   </div>
                 </div>
 
-                {/* Date & Meta */}
-                <div className="flex items-center space-x-2 text-[10px] font-mono text-[#C79B63] uppercase tracking-wider">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>{article.date}</span>
+                <div className="pt-4 border-t border-neutral-100">
+                  <button
+                    onClick={() => setSelectedArticle(article)}
+                    className="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-[#171717] group-hover:text-[#C79B63] transition-colors"
+                  >
+                    <span>READ ARTICLE</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#C79B63] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </button>
                 </div>
-
-                {/* Headline Title */}
-                <h3 className="text-base sm:text-lg font-light text-[#171717] tracking-tight leading-snug font-heading group-hover:text-[#C79B63] transition-colors">
-                  {article.title}
-                </h3>
-
-                {/* Excerpt */}
-                <p className="text-xs text-neutral-500 font-light leading-relaxed line-clamp-3">
-                  {article.excerpt}
-                </p>
               </div>
-
-              {/* Read Full Article Button */}
-              <div className="pt-3 border-t border-neutral-100">
-                <button
-                  onClick={() => setSelectedArticle(article)}
-                  className="inline-flex items-center space-x-2 text-xs font-light tracking-wider text-[#171717] border-b border-[#C79B63] hover:border-[#171717] pb-1 transition-all group-hover:text-[#C79B63]"
-                >
-                  <span>READ ARTICLE</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
-              </div>
-            </motion.div>
+            </GsapSlideUpText>
           ))}
         </div>
       </div>
 
-      {/* News Article Modal Drawer */}
       <NewsModal
-        isOpen={!!selectedArticle}
-        onClose={() => setSelectedArticle(null)}
+        isOpen={Boolean(selectedArticle)}
         article={selectedArticle}
+        onClose={() => setSelectedArticle(null)}
       />
     </section>
   );

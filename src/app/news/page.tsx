@@ -6,7 +6,6 @@ import SmoothScroll from "@/components/ui/SmoothScroll";
 import ParallaxFlowSection from "@/components/ui/ParallaxFlowSection";
 import PageHeroBanner from "@/components/ui/PageHeroBanner";
 import NewsSection from "@/components/sections/NewsSection";
-import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
 import Footer from "@/components/Footer";
 import ProjectModal from "@/components/Modals/ProjectModal";
@@ -24,10 +23,10 @@ export default function NewsPage() {
       noPadding: true,
       component: (
         <PageHeroBanner
-          category="INSIGHTS & PRESS"
+          category="INSIGHTS & UPDATES"
           title="Agency"
           highlightTitle="News"
-          subtitle="Discover our latest agency announcements, industry publications, creator summits, and awards."
+          subtitle="The latest announcements, partnership highlights, and updates from Visions Management."
           imageUrl="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1920"
         />
       ),
@@ -38,23 +37,8 @@ export default function NewsPage() {
       component: <NewsSection />,
     },
     {
-      id: "stats",
-      bgClassName: "bg-[#F8F7F4]",
-      component: <StatsSection />,
-    },
-    {
-      id: "cta",
-      bgClassName: "bg-[#171717]",
-      component: (
-        <CtaSection
-          onOpenProjectModal={() => setProjectModalOpen(true)}
-          onOpenTalentModal={() => setTalentModalOpen(true)}
-        />
-      ),
-    },
-    {
       id: "contact",
-      bgClassName: "bg-[#1D2622]",
+      bgClassName: "bg-[#171717]",
       noPadding: true,
       component: (
         <Footer

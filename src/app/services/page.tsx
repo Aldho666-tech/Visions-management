@@ -24,17 +24,18 @@ export default function ServicesPage() {
       noPadding: true,
       component: (
         <PageHeroBanner
-          category="SOLUTIONS & CAPABILITIES"
-          title="Our"
-          highlightTitle="Services"
-          subtitle="End-to-end influencer activation, commercial video production, and social media strategy."
+          category="OUR CAPABILITIES"
+          title="How We Can"
+          highlightTitle="Support You"
+          subtitle="Connecting brands, businesses, and communities to create partnerships that drive commercial growth."
           imageUrl="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1920"
         />
       ),
     },
     {
       id: "services",
-      bgClassName: "bg-[#1D2622]",
+      bgClassName: "bg-[#171717]",
+      noPadding: true,
       component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} />,
     },
     {
@@ -43,18 +44,8 @@ export default function ServicesPage() {
       component: <WhyUsSection />,
     },
     {
-      id: "cta",
-      bgClassName: "bg-[#171717]",
-      component: (
-        <CtaSection
-          onOpenProjectModal={() => setProjectModalOpen(true)}
-          onOpenTalentModal={() => setTalentModalOpen(true)}
-        />
-      ),
-    },
-    {
       id: "contact",
-      bgClassName: "bg-[#1D2622]",
+      bgClassName: "bg-[#171717]",
       noPadding: true,
       component: (
         <Footer

@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import GsapSplitText from "@/components/ui/GsapSplitText";
+import GsapSlideUpText from "@/components/ui/GsapSlideUpText";
 
 interface PageHeroBannerProps {
   category: string;
@@ -19,46 +20,45 @@ export default function PageHeroBanner({
   imageUrl,
 }: PageHeroBannerProps) {
   return (
-    <section className="relative h-[420px] sm:h-[500px] w-full flex items-center justify-center overflow-hidden bg-[#171717] text-[#F8F7F4]">
-      {/* Half-screen Banner Image with Dark Vignette */}
+    <section className="relative h-[420px] sm:h-[520px] w-full flex items-center justify-center overflow-hidden bg-[#171717] text-[#F8F7F4]">
+      {/* Background Image with Dark Vignette */}
       <div className="absolute inset-0 z-0">
         <img
           src={imageUrl}
           alt={title}
-          className="w-full h-full object-cover filter brightness-[0.55] contrast-105 scale-105"
+          className="w-full h-full object-cover filter brightness-[0.45] contrast-110 grayscale scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-black/50 to-black/70" />
       </div>
 
       {/* Banner Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-16">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-xs font-light tracking-[0.3em] text-[#C79B63] uppercase block mb-3"
-        >
-          {category}
-        </motion.span>
+        {category && (
+          <GsapSlideUpText delay={0.1} yOffset={20}>
+            <span className="text-xs font-mono font-medium tracking-[0.3em] text-[#C79B63] uppercase block mb-4">
+              {category}
+            </span>
+          </GsapSlideUpText>
+        )}
 
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-4xl sm:text-6xl font-light tracking-tight uppercase font-heading text-balance"
-        >
-          {title} {highlightTitle && <span className="text-[#C79B63] font-normal">{highlightTitle}</span>}
-        </motion.h1>
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight uppercase font-heading">
+          <GsapSplitText text={title} type="words" delay={0.2} stagger={0.05} />
+          {highlightTitle && (
+            <>
+              {" "}
+              <span className="text-[#C79B63] font-normal">
+                <GsapSplitText text={highlightTitle} type="words" delay={0.35} stagger={0.05} />
+              </span>
+            </>
+          )}
+        </h1>
 
         {subtitle && (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-4 text-neutral-300 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed"
-          >
-            {subtitle}
-          </motion.p>
+          <GsapSlideUpText delay={0.5} yOffset={25}>
+            <p className="mt-5 text-neutral-300 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
+              {subtitle}
+            </p>
+          </GsapSlideUpText>
         )}
       </div>
     </section>

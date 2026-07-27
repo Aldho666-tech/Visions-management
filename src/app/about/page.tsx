@@ -7,7 +7,6 @@ import ParallaxFlowSection from "@/components/ui/ParallaxFlowSection";
 import PageHeroBanner from "@/components/ui/PageHeroBanner";
 import IntroSection from "@/components/sections/IntroSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
-import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
 import Footer from "@/components/Footer";
 import ProjectModal from "@/components/Modals/ProjectModal";
@@ -28,7 +27,7 @@ export default function AboutPage() {
           category="AGENCY IDENTITY"
           title="About"
           highlightTitle="VISIONS"
-          subtitle="We bridge the gap between high-fashion storytelling and empirical digital growth."
+          subtitle="A strategic partnership agency connecting brands, businesses, and communities to create partnerships that drive lasting commercial value."
           imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1920"
         />
       ),
@@ -44,23 +43,8 @@ export default function AboutPage() {
       component: <WhyUsSection />,
     },
     {
-      id: "stats",
-      bgClassName: "bg-[#F8F7F4]",
-      component: <StatsSection />,
-    },
-    {
-      id: "cta",
-      bgClassName: "bg-[#171717]",
-      component: (
-        <CtaSection
-          onOpenProjectModal={() => setProjectModalOpen(true)}
-          onOpenTalentModal={() => setTalentModalOpen(true)}
-        />
-      ),
-    },
-    {
       id: "contact",
-      bgClassName: "bg-[#1D2622]",
+      bgClassName: "bg-[#171717]",
       noPadding: true,
       component: (
         <Footer

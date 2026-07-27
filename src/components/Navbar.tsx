@@ -113,13 +113,13 @@ export default function Navbar({ onOpenProjectModal, onOpenTalentModal }: Navbar
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed inset-x-0 top-[52px] xs:top-[60px] sm:top-[75px] bg-[#171717]/98 backdrop-blur-2xl border-b border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col space-y-6 max-h-[calc(100vh-75px)] overflow-y-auto"
           >
-            <div className="flex flex-col space-y-4 text-center">
+            <div className="flex flex-col space-y-2.5 text-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base sm:text-xl font-light text-[#F8F7F4] hover:text-[#C79B63] tracking-[0.25em] uppercase transition-colors py-1"
+                  className="text-base sm:text-lg font-light text-[#F8F7F4] hover:text-[#C79B63] tracking-[0.25em] uppercase transition-colors py-0.5"
                 >
                   {link.name}
                 </Link>

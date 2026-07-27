@@ -15,8 +15,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
     name: "",
     email: "",
     company: "",
-    service: "Talent Management & Influencer Campaign",
-    budget: "$5,000 - $15,000",
+    service: "Partnership Strategy",
     message: "",
   });
 
@@ -128,50 +127,40 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-neutral-300 mb-1.5 font-medium">
-                        Company / Brand Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Nike Indonesia"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full bg-[#171717]/80 border border-[#D8D8D8]/20 rounded-xl px-4 py-3 text-sm text-[#F8F7F4] placeholder-neutral-500 focus:outline-none focus:border-[#C79B63] transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-neutral-300 mb-1.5 font-medium">
-                        Estimated Budget
-                      </label>
-                      <select
-                        value={formData.budget}
-                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full bg-[#171717]/80 border border-[#D8D8D8]/20 rounded-xl px-4 py-3 text-sm text-[#F8F7F4] focus:outline-none focus:border-[#C79B63] transition-colors"
-                      >
-                        <option value="< $5,000">&lt; $5,000 (IDR 75M)</option>
-                        <option value="$5,000 - $15,000">$5,000 - $15,000 (IDR 75M - 225M)</option>
-                        <option value="$15,000 - $50,000">$15,000 - $50,000 (IDR 225M - 750M)</option>
-                        <option value="$50,000+">$50,000+ (IDR 750M+)</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider text-neutral-300 mb-1.5 font-medium">
+                      Company / Brand Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Balisabi"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="w-full bg-[#171717]/80 border border-[#D8D8D8]/20 rounded-xl px-4 py-3 text-sm text-[#F8F7F4] placeholder-neutral-500 focus:outline-none focus:border-[#C79B63] transition-colors"
+                    />
                   </div>
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-neutral-300 mb-1.5 font-medium">
-                      Primary Service Needed
+                      How Can We Support You?
                     </label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full bg-[#171717]/80 border border-[#D8D8D8]/20 rounded-xl px-4 py-3 text-sm text-[#F8F7F4] focus:outline-none focus:border-[#C79B63] transition-colors"
                     >
-                      <option value="Talent Management & Influencer Campaign">Talent Management & Influencer Campaign</option>
-                      <option value="Content Production & UGC">Content Production & UGC</option>
-                      <option value="Social Media Strategy & TikTok Marketing">Social Media Strategy & TikTok Marketing</option>
-                      <option value="Commercial Photography & Video Production">Commercial Photography & Video Production</option>
-                      <option value="Paid Performance Ads & Growth">Paid Performance Ads & Growth</option>
+                      <option value="Partnership Strategy">Partnership Strategy</option>
+                      <option value="Opportunity Mapping">Opportunity Mapping</option>
+                      <option value="Collaboration Planning">Collaboration Planning</option>
+                      <option value="Partnership Roadmap">Partnership Roadmap</option>
+                      <option value="Partner Sourcing">Partner Sourcing</option>
+                      <option value="Business Matchmaking">Business Matchmaking</option>
+                      <option value="Partnership Negotiation">Partnership Negotiation</option>
+                      <option value="Brand Collaborations">Brand Collaborations</option>
+                      <option value="Community Partnerships">Community Partnerships</option>
+                      <option value="Partnership Activation">Partnership Activation</option>
+                      <option value="Partnership Management">Partnership Management</option>
+                      <option value="Partnership Performance Review">Partnership Performance Review</option>
                     </select>
                   </div>
 

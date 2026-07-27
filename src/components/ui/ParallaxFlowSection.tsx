@@ -51,13 +51,13 @@ export default function ParallaxFlowSection({
         className={`absolute top-0 left-0 w-full h-[125%] z-0 pointer-events-none ${bgClassName}`}
       />
 
-      {/* Foreground Content Layer with Tight Compact Padding */}
+      {/* Foreground Content Layer */}
       <motion.div
-        style={{ y: yFg }}
-        initial={{ opacity: 0, y: 30 }}
+        style={{ y: noPadding ? 0 : yFg }}
+        initial={{ opacity: 0, y: noPadding ? 0 : 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.05 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className={`relative z-10 w-full h-full flex flex-col justify-center ${noPadding ? "" : "py-4 sm:py-6"}`}
       >
         {children}

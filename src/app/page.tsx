@@ -13,10 +13,8 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
-import StatsSection from "@/components/sections/StatsSection";
-import CampaignsSection from "@/components/sections/CampaignsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import CtaSection from "@/components/sections/CtaSection";
+import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
 
 import ProjectModal from "@/components/Modals/ProjectModal";
@@ -37,14 +35,14 @@ export default function Home() {
   const sections = [
     { id: "vision", bgClassName: "bg-[#171717]", component: <HeroSection onExploreWork={() => scrollToSection("about")} onStartProject={() => setProjectModalOpen(true)} />, noPadding: true },
     { id: "about", bgClassName: "bg-[#F8F7F4]", component: <IntroSection onNavigateServices={() => scrollToSection("services")} /> },
-    { id: "services", bgClassName: "bg-[#262626]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
-    { id: "partners", bgClassName: "bg-[#DFE7EC]", component: <PartnersSection />, noPadding: true },
-    { id: "process", bgClassName: "bg-[#171717]", component: <ProcessSection /> },
+    { id: "services", bgClassName: "bg-[#171717]", component: <ServicesSection onOpenProjectModal={() => setProjectModalOpen(true)} />, noPadding: true },
+    { id: "partners", bgClassName: "bg-[#171717]", component: <PartnersSection />, noPadding: true },
+    { id: "process", bgClassName: "bg-[#171717]", component: <ProcessSection />, noPadding: true },
     { id: "why-us", bgClassName: "bg-[#F8F7F4]", component: <WhyUsSection /> },
-    { id: "stats", bgClassName: "bg-[#F8F7F4]", component: <StatsSection /> },
-    { id: "campaigns", bgClassName: "bg-[#171717]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
+    // { id: "stats", bgClassName: "bg-[#F8F7F4]", component: <StatsSection /> }, // Hidden per §0 until real client metrics available
+    // { id: "campaigns", bgClassName: "bg-[#171717]", component: <CampaignsSection onOpenProjectModal={() => setProjectModalOpen(true)} /> }, // Hidden per §0 until real case studies available
     { id: "testimonials", bgClassName: "bg-[#F8F7F4]", component: <TestimonialsSection /> },
-    { id: "cta", bgClassName: "bg-[#F8F7F4]", component: <CtaSection onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} /> },
+    { id: "contact-section", bgClassName: "bg-[#F8F7F4]", component: <ContactSection onOpenProjectModal={() => setProjectModalOpen(true)} /> },
     { id: "contact", bgClassName: "bg-[#171717]", component: <Footer onOpenProjectModal={() => setProjectModalOpen(true)} onOpenTalentModal={() => setTalentModalOpen(true)} />, noPadding: true },
   ];
 

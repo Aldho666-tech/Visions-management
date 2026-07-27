@@ -1,25 +1,24 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+import GsapSplitText from "@/components/ui/GsapSplitText";
+import GsapSlideUpText from "@/components/ui/GsapSlideUpText";
 
 interface HeroSectionProps {
-  onExploreWork: () => void;
-  onStartProject: () => void;
+  onExploreWork?: () => void;
+  onStartProject?: () => void;
 }
 
-export default function HeroSection({ onExploreWork, onStartProject }: HeroSectionProps) {
+export default function HeroSection({ onExploreWork }: HeroSectionProps) {
   const marqueeItems = [
-    "PARTNERSHIP",
+    "STRATEGIC PARTNERSHIP",
     "•",
-    "CONNECTING YOUR BUSINESS",
+    "THE RIGHT PARTNERS CHANGE EVERYTHING",
     "•",
-    "STRATEGY",
-    "•",
-    "ENTERPRISE",
-    "•",
-    "INNOVATION",
+    "COMMUNITY & COLLABORATION",
     "•",
     "VISIONS MANAGEMENT",
     "•",
@@ -27,7 +26,7 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
 
   return (
     <section id="vision" className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#171717]">
-      {/* Background Media - High-End Executive B2B Partnership Theme */}
+      {/* Background Media */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -43,82 +42,46 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
             type="video/mp4"
           />
         </video>
-        {/* Black Vignette Overlay for Crisp Readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-[#171717]" />
       </div>
 
-      {/* Top Spacer for Floating Navbar */}
+      {/* Top Spacer */}
       <div className="h-24 sm:h-32" />
 
-      {/* Center Animated Headline & Action Button */}
+      {/* Center Animated Content */}
       <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-5xl mx-auto py-8">
-        <div className="flex flex-col items-center space-y-4 sm:space-y-6">
-          {/* Animated Headline Words with Silk Reveal & Gold Glow */}
-          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.1] sm:leading-[1.05] font-heading text-white text-balance drop-shadow-2xl overflow-hidden py-1">
-            <motion.span
-              initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.9, delay: 0.2 }}
-              className="inline-block mr-2.5 sm:mr-4"
-            >
-              Connecting
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.9, delay: 0.38 }}
-              className="inline-block mr-2.5 sm:mr-4"
-            >
-              Your
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                filter: "blur(0px)",
-                textShadow: [
-                  "0 0 20px rgba(199,155,99,0.3)",
-                  "0 0 35px rgba(199,155,99,0.6)",
-                  "0 0 20px rgba(199,155,99,0.3)",
-                ],
-              }}
-              transition={{
-                duration: 0.9,
-                delay: 0.56,
-                textShadow: {
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-              className="inline-block font-serif italic font-normal text-[#C79B63] drop-shadow-[0_0_25px_rgba(199,155,99,0.4)]"
-            >
-              Business
-            </motion.span>
+        <div className="flex flex-col items-center space-y-6 sm:space-y-8">
+          {/* Main Headline with SplitText Character/Word Reveal */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.15] font-heading text-white drop-shadow-2xl uppercase max-w-5xl py-2">
+            <div className="block">
+              <GsapSplitText text="The Right" type="chars" delay={0.2} stagger={0.03} />
+              {" "}
+              <span className="font-serif italic font-normal text-[#C79B63]">
+                <GsapSplitText text="Partners" type="chars" delay={0.4} stagger={0.03} />
+              </span>
+            </div>
+            <div className="block mt-1">
+              <GsapSplitText text="Change Everything" type="chars" delay={0.6} stagger={0.025} />
+            </div>
           </h1>
 
-          {/* Action Button Entrance */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="pt-2"
-          >
-            <button
-              onClick={onExploreWork}
-              className="inline-flex items-center space-x-2 text-[11px] xs:text-xs sm:text-sm font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white border-b border-[#C79B63] hover:border-white pb-1 sm:pb-1.5 transition-all group hover:text-[#C79B63]"
-            >
-              <span>DISCOVER PARTNERSHIPS</span>
-              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C79B63] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
-          </motion.div>
+          {/* Action Button */}
+          <GsapSlideUpText delay={0.95} yOffset={25}>
+            <div className="pt-4 flex justify-center">
+              <Link
+                href="/services"
+                className="px-8 py-3.5 bg-transparent hover:bg-white/10 text-white font-light text-xs sm:text-sm tracking-[0.2em] uppercase border border-white/40 hover:border-white transition-all duration-300 flex items-center space-x-2.5 group"
+              >
+                <span>EXPLORE OUR SERVICES</span>
+                <ArrowUpRight className="w-4 h-4 text-[#C79B63] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
+          </GsapSlideUpText>
         </div>
       </div>
 
-      {/* Bottom Area: Pure Floating Marquee & Zero-Gap Bottom Info Bar */}
+      {/* Bottom Area */}
       <div className="relative z-10 w-full pb-0 pt-0">
-        {/* Pure Floating Running Text */}
         <div className="w-full overflow-hidden select-none py-1 mb-1 bg-transparent">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -142,12 +105,10 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
           </motion.div>
         </div>
 
-        {/* Bottom 3-Column Info Bar */}
         <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-14 pb-2">
           <div className="border-t border-white/20 mb-2" />
 
           <div className="flex items-center justify-between text-xs text-neutral-300 font-light tracking-wider">
-            {/* Left: Downward Arrow Icon */}
             <div className="flex items-center">
               <button
                 onClick={onExploreWork}
@@ -158,12 +119,10 @@ export default function HeroSection({ onExploreWork, onStartProject }: HeroSecti
               </button>
             </div>
 
-            {/* Center: Statement Text */}
             <div className="text-center text-[10px] xs:text-[11px] sm:text-xs text-neutral-300 max-w-xl mx-auto leading-relaxed px-2 truncate sm:whitespace-normal">
-              Visions Management — Connecting your business with elite global partners.
+              Visions Management — Connecting your business with the right partners.
             </div>
 
-            {/* Right: Scroll to Explore */}
             <div
               onClick={onExploreWork}
               className="flex items-center justify-end space-x-1.5 sm:space-x-2 text-[10px] xs:text-[11px] sm:text-xs tracking-[0.15em] text-neutral-200 hover:text-[#C79B63] cursor-pointer transition-colors shrink-0"
