@@ -20,7 +20,7 @@ export default function PageHeroBanner({
   imageUrl,
 }: PageHeroBannerProps) {
   return (
-    <section className="relative h-[420px] sm:h-[520px] w-full flex items-center justify-center overflow-hidden bg-[#171717] text-[#F8F7F4]">
+    <section className="relative min-h-[260px] sm:min-h-[420px] w-full flex items-center justify-center overflow-hidden bg-[#171717] text-[#F8F7F4] py-14 sm:py-20">
       {/* Background Image with Dark Vignette */}
       <div className="absolute inset-0 z-0">
         <img
@@ -32,7 +32,7 @@ export default function PageHeroBanner({
       </div>
 
       {/* Banner Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-16">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-10 sm:pt-14">
         {category && (
           <GsapSlideUpText delay={0.1} yOffset={20}>
             <span className="text-xs font-mono font-medium tracking-[0.3em] text-[#C79B63] uppercase block mb-4">

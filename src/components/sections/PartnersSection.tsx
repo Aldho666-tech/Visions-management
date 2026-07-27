@@ -23,7 +23,9 @@ export default function PartnersSection({ hideHeader = false }: PartnersSectionP
   return (
     <section
       id="partners"
-      className="bg-[#171717] text-[#F8F7F4] py-10 sm:py-14 relative overflow-hidden font-heading"
+      className={`bg-[#171717] text-[#F8F7F4] relative overflow-hidden font-heading ${
+        hideHeader ? "py-2 sm:py-6" : "py-10 sm:py-14"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Clean Header Label (Matching User Screenshot) */}
