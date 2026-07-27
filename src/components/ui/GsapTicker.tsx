@@ -11,6 +11,7 @@ interface GsapTickerProps {
   direction?: "left" | "right";
   className?: string;
   separatorChar?: string;
+  theme?: "dark" | "light";
 }
 
 export default function GsapTicker({
@@ -19,6 +20,7 @@ export default function GsapTicker({
   direction = "left",
   className = "",
   separatorChar = "·",
+  theme = "dark",
 }: GsapTickerProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<gsap.core.Tween | null>(null);
@@ -49,6 +51,8 @@ export default function GsapTicker({
   // Duplicate items for seamless loop
   const allItems = [...items, ...items];
 
+  const isLight = theme === "light";
+
   return (
     <div className={`overflow-hidden w-full ${className}`}>
       <div ref={trackRef} className="flex items-center will-change-transform whitespace-nowrap">
@@ -64,15 +68,23 @@ export default function GsapTicker({
                   <img
                     src={logo}
                     alt={name}
-                    className="h-7 sm:h-9 max-w-[140px] sm:max-w-[180px] object-contain filter brightness-0 invert opacity-85 hover:opacity-100 transition-all duration-300"
+                    className={`h-7 sm:h-9 max-w-[140px] sm:max-w-[180px] object-contain transition-all duration-300 ${
+                      isLight
+                        ? "filter brightness-0 opacity-70 hover:opacity-100"
+                        : "filter brightness-0 invert opacity-85 hover:opacity-100"
+                    }`}
                   />
                 </div>
               ) : (
-                <span className="font-heading font-light tracking-[0.3em] uppercase text-sm sm:text-base px-6 sm:px-8 text-neutral-200 hover:text-[#C79B63] transition-colors duration-300 cursor-default">
+                <span
+                  className={`font-heading font-light tracking-[0.3em] uppercase text-sm sm:text-base px-6 sm:px-8 transition-colors duration-300 cursor-default ${
+                    isLight ? "text-neutral-800 hover:text-[#C79B63]" : "text-neutral-200 hover:text-[#C79B63]"
+                  }`}
+                >
                   {name}
                 </span>
               )}
-              <span className="text-[#C79B63] text-xs shrink-0 opacity-50 px-2">
+              <span className={`text-[#C79B63] text-xs shrink-0 px-2 ${isLight ? "opacity-60" : "opacity-50"}`}>
                 {separatorChar}
               </span>
             </span>

@@ -70,7 +70,7 @@ export default function TestimonialsSection() {
               speed={65}
               direction="left"
               separatorChar="·"
-              className="[&_span]:text-[#171717] [&_span]:hover:text-[#C79B63]"
+              theme="light"
             />
           </div>
         </div>
