@@ -64,14 +64,14 @@ export default function GsapTicker({
           return (
             <span key={idx} className="inline-flex items-center shrink-0">
               {logo ? (
-                <div className="px-6 sm:px-10 flex items-center justify-center">
+                <div className="px-8 sm:px-12 flex items-center justify-center">
                   <img
                     src={logo}
                     alt={name}
-                    className={`h-7 sm:h-9 max-w-[140px] sm:max-w-[180px] object-contain transition-all duration-300 ${
+                    className={`h-10 sm:h-14 md:h-16 max-w-[180px] sm:max-w-[260px] object-contain transition-all duration-300 ${
                       isLight
-                        ? "filter brightness-0 opacity-70 hover:opacity-100"
-                        : "filter brightness-0 invert opacity-85 hover:opacity-100"
+                        ? "filter brightness-0 opacity-80 hover:opacity-100"
+                        : "filter brightness-0 invert opacity-90 hover:opacity-100"
                     }`}
                   />
                 </div>
